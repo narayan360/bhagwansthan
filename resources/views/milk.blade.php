@@ -1,0 +1,173 @@
+@extends('layouts.master')
+@section('title') {{ $page->title }}
+@endsection
+
+@section('content')
+    <main>
+        <section class="banner_wrap container-fluid p-0">
+            <div class="overlay"></div>
+            <div class="banner_wrap_bg" style="background-image: url('{{asset('images/cow2.jpeg')}}');"></div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 col-sm-12 col-12">
+                        <div class="banner_sections" >
+                            <h4>{{ $page->title }}</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="about_page_wrap container-fluid pt-0 mt-md-5 mb-md-5" >
+            <div class="container">
+                <div class="row">
+                        <div class="col-md-12 col-sm-12 col-12">
+                            @if($errors->any())
+                                <div class="alert alert-danger">
+                                    <ul>
+                                        @foreach($errors->all() as $error)
+                                            <li>{{ $error }}</li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                            @endif
+                            @if(Session::has('success'))
+                                <div class="alert alert-success alert-dismissable">
+                                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                                    <p>
+                                        {{ Session::get('success') }}
+                                    </p>
+                                </div>
+                            @endif
+                            @if(Session::has('error'))
+                                <div class="alert alert-danger alert-dismissable">
+                                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                                    <p>
+                                        {{ Session::get( 'error') }}
+                                    </p>
+                                </div>
+                            @endif
+                            <div class="content_sections text-left text-justify">
+                                <form method="post" class="contact-form" action="{{ route('milksubs') }}" style="margin-top: 30px;" enctype="multipart/form-data">
+
+                                    {!! csrf_field() !!}
+                                    <fieldset>
+                                        <legend><b>Customer Information</b></legend>
+                                        <div class="row">
+                                            <div class="form-group col-md-6">
+                                                <label for="name">Full Name</label>
+                                                <input placeholder="Enter Full Name" name="name" id="name" type="text" class="form-control" required="required">
+                                            </div>
+
+                                            <div class="form-group col-md-6">
+                                                <label for="email">Email Address</label>
+                                                <input placeholder="Enter Email Address" name="email" id="email" type="email" class="form-control" required="required">
+                                            </div>
+
+                                            <div class="form-group col-md-6">
+                                                <label for="phone">Phone</label>
+                                                <input placeholder="Enter Phone" name="phone" id="phone" type="text" class="form-control" required="required">
+                                            </div>
+                                            <div class="form-group col-md-6">
+                                                <label for="district">District</label>
+                                                <select name="district" id="district" class="form-control">
+                                                    <option selected="selected">Select District</option>
+                                                    <option value="Kathmandu">Kathmandu</option>
+                                                    <option value="Bhaktapur">Bhaktapur</option>
+                                                    <option value="Lalitpur">Lalitpur</option>
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+
+                                            <div class="form-group col-md-12">
+                                                <label for="address">Address</label>
+                                                <textarea placeholder="Enter Address" name="address" id="address" class="form-control" rows="4"></textarea>
+                                            </div>
+
+
+                                        </div>
+
+                                        <div class="row">
+
+
+                                            <div class="form-group col-md-12">
+                                                <label for="image">User Image</label><br>
+                                                <input type="file" id="image" name="image" class="form-control">
+                                            </div>
+                                        </div>
+                                    </fieldset>
+                                    <br>
+
+                                    <fieldset>
+                                        <legend><b>Subscription Type</b></legend>
+                                        <div class="form-group">
+                                            <label for="subscription_type">Subscription Type</label>
+                                            <select name="subscription_type" id="subscription_type" class="form-control">
+                                                <option selected="selected">Select Membership Type</option>
+                                                <option value="Daily">Daily</option>
+                                                <option value="Weekly">Weekly</option>
+                                                <option value="Monthly">Monthly</option>
+                                            </select>
+                                        </div>
+                                    </fieldset>
+                                    <br>
+                                    <fieldset>
+                                        <legend><b>Options</b></legend>
+                                        <div class="form-group">
+                                            <label for="options">Options</label>
+                                            <select name="options" id="options" class="form-control">
+                                                <option selected="selected">Select Options</option>
+                                                <option value="250ml">250 ml</option>
+                                                <option value="500ml">500 ml</option>
+                                                <option value="1Lit">1 Lit</option>
+
+                                            </select>
+                                        </div>
+                                    </fieldset>
+                                    <br>
+                                    <fieldset>
+                                        <div class="row">
+                                            <div class="form-group col-md-12">
+                                                <label for="subscription_type">Quantity</label>
+                                                <input type="number" class="form-control" name="quantity" placeholder="Select Quantity">
+                                            </div>
+                                        </div>
+                                    </fieldset>
+                                    <br>
+                                    <div class="row">
+                                        <div class="form-group col-md-4">
+                                            <img src="{{ route('captcha') }}" alt="Captcha">
+                                        </div>
+
+                                        <div class=" form-group col-md-6">
+                                            <input type="text" class="form-control {{ $errors->has('captcha') ? ' is-invalid' : '' }}" id="captcha" name="captcha" placeholder="Enter Captcha">
+                                        </div>
+                                    </div>
+
+                                    <hr>
+                                    <fieldset>
+                                        <legend><b>Bank Details</b></legend>
+                                        <div class="form-group">
+                                            <label>
+                                                <b>Please transfer Your subscription fee in this Bank account.</b><br>
+
+                                                Bank Name<br>
+                                                {{config('app.name')}} <br>
+                                                A/C: 45698741236 <br>
+
+                                            </label>
+                                        </div>
+                                    </fieldset>
+                                    <button class="btn bt-hover mb-4 rounded-0">Send Subscription Request</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+
+            </div>
+        </section>
+    </main>
+
+@endsection
