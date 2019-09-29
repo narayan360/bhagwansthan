@@ -40,8 +40,8 @@
                         {{--<li><a href=""><i class="lnr lnr-cog"></i> <span>Settings</span></a></li>--}}
                         <li><a href="{{ route('settings.index') }}"><i class="lnr lnr-cog"></i> <span>Settings</span></a></li>
                         <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><img src="{{ asset('') }}" class="img-circle" alt="Avatar"> <span>{{Auth::user()->name}}
-                                </span> <i class="icon-submenu lnr lnr-chevron-down"></i></a>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <span>{{Auth::user()->name}}</span> <i class="icon-submenu lnr lnr-chevron-down"></i></a>
                             <ul class="dropdown-menu">
                                 <li><a href=""><i class="lnr lnr-user"></i><span>Profile</span></a></li>
                                 <li>

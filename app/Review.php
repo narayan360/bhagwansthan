@@ -14,6 +14,10 @@ class Review extends Model
 	{
 		return $this->belongsTo('\App\Country');
 	}
+	public function scopeActive($query)
+	{
+		return $query->where('status', 1);
+	}
 
 	public function image($size = '300x300')
 	{
