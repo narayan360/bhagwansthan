@@ -91,6 +91,7 @@
                 <div class="row logo_navbar_wrap">
                     <div class="col-md-2 col-sm-6 col-6 logo_section_header p-0">
                         <img src="{{asset('images/logo.png')}}" alt="Logo" class="" width="100%">
+                        <h6 class="bhagwansthan_logo_text">Bhagwansthan</h6>
                     </div>
                     <div class="col-md-10 col-sm-6 col-6">
                         <nav class="navbar navbar-expand-lg navbar-light p-0">
@@ -226,7 +227,7 @@
             </div>
             <div class="row">
                 <div class="col-md-12 col-sm-12 col-12 py-md-2">
-                    <h6 class="text-center main_footer_text">&copy; <?php echo(date('Y'));?>. All Rights Reserved.Designed and Developed By <span class="bottom_footer_span"><a href="#"> Roshan Kunwar </a></span></h6>
+                    <h6 class="text-center main_footer_text">&copy; <?php echo(date('Y'));?>. All Rights Reserved.Designed and Developed By <span class="bottom_footer_span"><a href="https://www.facebook.com/roshan.kunwar.56"> Roshan Kunwar </a></span></h6>
                 </div>
             </div>
         </div>

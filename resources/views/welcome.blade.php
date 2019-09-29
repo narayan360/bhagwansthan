@@ -27,20 +27,20 @@
             <div class="carousel-item {{$key==0 ? 'active' : ''}}">
                 <div class="overlay"></div>
                 <img class="d-block w-100" src="{{ $slide->image('450x300') }}" alt="{{ $slide->title }}">
-                <div class="carousel-caption  row">
+                {{--<div class="carousel-caption  row">--}}
 
-                    <div class="col-md-4 col-sm-4 col-6 img_captions">
-                        <img class="d-block w-100" src="{{asset('images/milkbottle.png')}}" alt="First slide" width="100%" height="50px">
-                    </div>
-                    <div class="col-md-8 col-sm-8 col-6">
-                        <div class="carousel_caption_wrap ">
-                            <h2 class="mb-md-5 d-flex justify-content-center d-md-table mx-auto">A dairy Farm For<br> Nepal's Future</h2>
-                            <a href="#" class="btn btn-primary btn-outline-primary d-flex justify-content-center d-md-table mx-auto rounded-0">Read More</a>
-                        </div>
-                    </div>
+                    {{--<div class="col-md-4 col-sm-4 col-6 img_captions">--}}
+                        {{--<img class="d-block w-100" src="{{asset('images/milkbottle.png')}}" alt="First slide" width="100%" height="50px">--}}
+                    {{--</div>--}}
+                    {{--<div class="col-md-8 col-sm-8 col-6">--}}
+                        {{--<div class="carousel_caption_wrap ">--}}
+                            {{--<h2 class="mb-md-5 d-flex justify-content-center d-md-table mx-auto">A dairy Farm For<br> Nepal's Future</h2>--}}
+                            {{--<a href="#" class="btn btn-primary btn-outline-primary d-flex justify-content-center d-md-table mx-auto rounded-0">Read More</a>--}}
+                        {{--</div>--}}
+                    {{--</div>--}}
 
 
-                </div>
+                {{--</div>--}}
             </div>
             @endforeach
             {{--<div class="carousel-item">--}}
@@ -209,62 +209,20 @@
                             <span class="cow_bg_content text-center" style=""><img src="{{asset('images/cow.png')}}" alt="" width="20px" height="20px" class="cow_content_img"></span>
                         </h4>
                     </div>
+                    @if($gallaries)
+                        @foreach($gallaries as $gallery)
                     <div class="col-md-3 col-sm-6 col-12 mb-md-4">
                         <div class="card">
-                            <div class="card-img-top gallery_images">
-                                <img src="{{asset('images/cows.jpeg')}}" alt="">
+                            <div class="card-img-top gallery_images hov-img-zoom">
+                                <img src="{{asset('uploads/gallery/'.$gallery->image)}}" alt="{{$gallery->image}}" class="img-fluid" width="100%">
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-3 col-sm-6 col-12 mb-md-4">
-                        <div class="card">
-                            <div class="card-img-top gallery_images">
-                                <img src="{{asset('images/cows.jpeg')}}" alt="">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-sm-6 col-12 mb-md-4">
-                        <div class="card">
-                            <div class="card-img-top gallery_images">
-                                <img src="{{asset('images/cows.jpeg')}}" alt="">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-sm-6 col-12 mb-md-4">
-                        <div class="card">
-                            <div class="card-img-top gallery_images">
-                                <img src="{{asset('images/cows.jpeg')}}" alt="">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-sm-6 col-12 mb-md-4">
-                        <div class="card">
-                            <div class="card-img-top gallery_images">
-                                <img src="{{asset('images/cows.jpeg')}}" alt="">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-sm-6 col-12 mb-md-4">
-                        <div class="card">
-                            <div class="card-img-top gallery_images">
-                                <img src="{{asset('images/cows.jpeg')}}" alt="">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-sm-6 col-12 mb-md-4">
-                        <div class="card">
-                            <div class="card-img-top gallery_images">
-                                <img src="{{asset('images/cows.jpeg')}}" alt="">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-sm-6 col-12 mb-md-4">
-                        <div class="card">
-                            <div class="card-img-top gallery_images">
-                                <img src="{{asset('images/cows.jpeg')}}" alt="">
-                            </div>
-                        </div>
-                    </div>
+                        @endforeach
+                        @else
+                        <p>No Gallery Images.</p>
+                    @endif
+
 
                 </div>
             </div>
@@ -336,15 +294,16 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-md-4 col-sm-12 col-12 mb-md-3">
-                        <iframe width="100%" height="180" src="https://www.youtube.com/embed/Ow8WCYJX6gs" frameborder="0" allowfullscreen></iframe>
+                    @if($videos)
+                        @foreach($videos as $video)
+                    <div class="col-md-4 col-sm-12 col-12 mb-md-3 ">
+                        <iframe width="100%" height="180" src="https://www.youtube.com/embed/{{$video->video_id}}" frameborder="0" allowfullscreen></iframe>
                     </div>
-                    <div class="col-md-4 col-sm-12 col-12 mb-md-3">
-                        <iframe width="100%" height="180" src="https://www.youtube.com/embed/Ow8WCYJX6gs" frameborder="0" allowfullscreen></iframe>
-                    </div>
-                    <div class="col-md-4 col-sm-12 col-12 mb-md-3">
-                        <iframe width="100%" height="180" src="https://www.youtube.com/embed/Ow8WCYJX6gs" frameborder="0" allowfullscreen></iframe>
-                    </div>
+                        @endforeach
+                        @else
+                        <p>No videos.</p>
+                    @endif
+
                 </div>
             </div>
 

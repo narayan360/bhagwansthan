@@ -178,6 +178,11 @@
     {
         padding: 0 0 10px 0;
     }
+    .bhagwansthan_logo_text
+    {
+        margin:-15px 0 0 5px;
+        font-size: 13px;
+    }
 }
 
 /*// Small devices (landscape phones, 576px and up)*/
@@ -292,14 +297,21 @@
 
     .logo_section_header
     {
-        height:95px;
+        height:105px;
 
     }
     .logo_section_header img
     {
         height: 100%;
+        margin-top: -10px;
         margin-left: -25px;
     }
+    .bhagwansthan_logo_text
+    {
+    margin-top: -20px;
+        margin-left: 15px;
+    }
+
     .carousel_wrap
     {
         height:500px;

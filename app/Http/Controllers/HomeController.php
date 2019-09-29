@@ -25,6 +25,9 @@ class HomeController extends Controller
     {
         $data['page'] = \App\Page::find('1');
         $data['slides'] = \App\Slide::latest()->take(3)->get();
+        $data['videos'] = \App\Video::latest()->take(3)->get();
+        $data['gallaries'] = \App\Gallery::latest()->take(4)->get();
+        $data['reviews']=\App\Review::latest()->take(2)->active()->get();
         return view('welcome', $data);
     }
 }
