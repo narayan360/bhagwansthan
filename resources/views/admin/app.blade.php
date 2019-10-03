@@ -70,6 +70,10 @@
                         <li><a href="{{ route('admin.dashboard') }}" {!!(!request()->segment(2) ? 'class="active"' : null) !!} ><i class="lnr lnr-home"></i> <span>Dashboard</span></a></li>
                         <li><a href="{{ route('pages.index') }}" {!!(request()->segment(2) == 'pages' ? 'class="active"' : null) !!}><i class="lnr lnr-book"></i> <span>Page</span></a></li>
                         <li><a href="{{ route('labels.index') }}" {!!(request()->segment(2) == 'labels' ? 'class="active"' : null) !!}><i class="lnr lnr-pencil"></i> <span>Labels</span></a></li>
+                        <li><a href="{{ route('categories.index') }}" {!!(request()->segment(2) == 'categories' ?
+                            'class="active"' : null) !!}><i class="lnr lnr-menu"></i> <span>Categories</span></a></li>
+                        <li><a href="{{ route('items.index') }}" {!!(request()->segment(2) == 'items' ? 'class="active"' : null) !!}><i class="lnr lnr-dinner"></i> <span>Items</span></a></li>
+
                         <li><a href="{{ route('slides.index') }}"{!!(request()->segment(2) == 'slides' ? 'class="active"' : null) !!}><i class="lnr lnr-picture"></i><span>Slide</span></a></li>
                         <li><a href="{{ route('galleries.index') }}" {!!(request()->segment(2) == 'galleries' ? 'class="active"' : null) !!}><i class="lnr lnr-camera"></i> <span>Galleries</span></a></li>
                         <li><a href="{{ route('videos.index') }}" {!!(request()->segment(2) == 'videos' ? 'class="active"' : null) !!}><i class="lnr lnr-film-play"></i> <span>Videos</span></a></li>

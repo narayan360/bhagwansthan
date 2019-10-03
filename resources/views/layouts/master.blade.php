@@ -24,7 +24,8 @@
     <link rel="stylesheet" href="{{asset('css/style.css')}}">
     {{--responsive--}}
     <link rel="stylesheet" href="{{asset('css/responsive.css')}}">
-
+    {{--Toastr--}}
+    <link href="{{asset('vendors/toastr/toastr.min.css')}}">
     @yield('css')
 
     {{--Font Awesome--}}
@@ -251,9 +252,90 @@
 {{--Owl CArousel--}}
 <script src="{{asset('vendor/owl-carousel/owl.carousel.min.js')}}"></script>
 
+{{--lodash--}}
+<script src="{{asset('vendors/lodash.min.js') }}"></script>
+<script src="{{asset('vendors/loadingoverlay.min.js') }}"></script>
+{{--Toastr--}}
+<script src="{{asset('vendors/toastr/toastr.min.js')}}"></script>
+<script>
+    toastr.options = {
+        "positionClass": "toast-bottom-right",
+    }
+</script>
+
 <script src="{{asset('js/script.js')}}"></script>
 
 @yield('script')
+<script>
+    function sidecartload() {
+        url = "{{ route('sidecartload') }}";
+        $.ajax(url,{
+            type: 'post',
+            start: $('#sidecartload').LoadingOverlay('show'),
+            data: {
+                _token: "{{csrf_token()}}"
+            },
+            success:function (response) {
+                $('#sidecartload').html(response);
+                $('#sidecartload').LoadingOverlay('hide');
+            }
+        });
+    }
+    function mobilecartload() {
+        url = "{{ route('mobilecartload') }}";
+        $.ajax(url,{
+            type: 'post',
+            start: $('#mobilecartload').LoadingOverlay('show'),
+            data: {
+                _token: "{{csrf_token()}}"
+            },
+            success:function (response) {
+                $('#mobilecartload').html(response);
+                $('#mobilecartload').LoadingOverlay('hide');
+            }
+        });
+    }
+
+    $(document).on('click', '.btn_add_to_cart', function(e){
+        e.preventDefault();
+        _form =  $(this).closest("form");
+        _data =  _form.serialize();
+        url = "{{ route('addtocart') }}";
+        parent = $(this).closest(".order-menu-item");
+        $.ajax(url,{
+            type: 'post',
+            data: _data,
+            start: parent.LoadingOverlay('show'),
+            success:function (response) {
+
+                sidecartload();
+                mobilecartload();
+                toastr.success(response.message);
+                parent.LoadingOverlay('hide');
+            }
+        });
+    });
+
+    $(document).on('click', '.btn_remove_from_cart', function(e){
+        e.preventDefault();
+        _form =  $(this).closest("form");
+        _data =  _form.serialize();
+        url = "{{ route('removecart') }}";
+        parent = $(this).closest(".side-block-order-content");
+        $.ajax(url,{
+            type: 'post',
+            data: _data,
+            start: parent.LoadingOverlay('show'),
+            success:function (response) {
+//                topcartload();
+                sidecartload();
+                cartload();
+                toastr.success(response.message);
+                parent.LoadingOverlay('hide');
+            }
+        });
+    });
+</script>
 
 </body>
 </html>

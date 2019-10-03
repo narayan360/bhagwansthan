@@ -183,6 +183,20 @@
         margin:-15px 0 0 5px;
         font-size: 13px;
     }
+    .tit-mainmenu{
+        font-size: 16px;
+        padding: 10px 0 0 0;
+    }
+    .name-item-mainmenu
+    {
+        font-size: 13px;
+    }
+    .btn_add_to_cart span
+    {
+        font-size: 14px;
+    }
+
+
 }
 
 /*// Small devices (landscape phones, 576px and up)*/
@@ -194,6 +208,18 @@
     h3
     {
         font-size: 14px;
+    }
+    .name-item-mainmenu {
+        font-size: 13px;
+    }
+    .txt23
+    {
+        font-size: 13px;
+    }
+
+    .btn_add_to_cart span
+    {
+        font-size: 13px;
     }
     .carousel-indicators-numbers
     {
@@ -233,6 +259,19 @@
     {
         padding-top: 8px;
     }
+    .order_categories_block li a
+    {
+        font-size: 15px;
+    }
+    .order_categories_block li ul
+    {
+        padding: 0 0;
+    }
+    .your_orders_header
+    {
+        font-size: 14px;
+    }
+
 }
 
 /*// Medium devices (tablets, 768px and up)*/

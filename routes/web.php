@@ -39,6 +39,11 @@ Route::group(['prefix' => 'admin', 'middleware' => ['admin'], 'namespace' => 'Ad
     Route::get('milksubscriptions/pdf/{milk}', 'MilkController@pdf')->name('pdf');
 
     Route::resource('contacts', 'ContactController');
+
+    Route::resource('categories', 'CategoryController');
+    Route::post('categories/order', 'CategoryController@order')->name('categories.order');
+    Route::resource('items', 'ItemController');
+    Route::post('items/order', 'ItemController@order')->name('items.order');
 });
 
 
@@ -70,6 +75,10 @@ foreach ($pages as $page) {
         $router->get($page->slug,'PageController@contact')->name('contact');
         $router->post($page->slug,'PageController@contact');
     }
+    elseif($page->slug == 'product')
+    {
+        $router->get($page->slug,'OrderController@index')->name('order');
+    }
     elseif($page->slug != '/')
     {
         $router->get($page->slug,'PageController@index');
@@ -85,3 +94,13 @@ Route::get('thankyou', 'PageController@thankyou')->name('thankyou');
 Route::get('card/{id}','PageController@card')->name('card');
 
 Route::get('thankyoucontact', 'PageController@thankyoucontact')->name('thankyoucontact');
+
+//Product
+Route::get('category/{category}','OrderController@category');
+Route::get('item/{item}','OrderController@item');
+Route::post('addtocart','OrderController@addtocart')->name('addtocart');
+Route::post('removecart','OrderController@removecart')->name('removecart');
+Route::post('cartupdate','OrderController@cartupdate')->name('cartupdate');
+Route::post('cartload','OrderController@cartload')->name('cartload');
+Route::post('sidecartload','OrderController@sidecartload')->name('sidecartload');
+Route::post('mobilecartload','OrderController@mobilecartload')->name('mobilecartload');
