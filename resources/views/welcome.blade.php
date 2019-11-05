@@ -90,6 +90,29 @@
 
     <main>
         {{--Index About--}}
+        {{--<section class="home_about_wrap mt-md-5">--}}
+            {{--<div class="container">--}}
+                {{--<div class="row">--}}
+
+                    {{--<div class="col-md-4">--}}
+                        {{--<img src="{{asset('images/cows.jpeg')}}" alt="about_img" width="100%">--}}
+                    {{--</div>--}}
+                    {{--<div class="col-md-8">--}}
+                        {{--<div class="row">--}}
+                            {{--<div class="col-md-12">--}}
+                        {{--<h4 class="text-center Content_title">--}}
+                            {{--About Us--}}
+                            {{--<span class="cow_bg_content text-center" style=""><img src="{{asset('images/cow.png')}}" alt="" width="20px" height="20px" class="cow_content_img"></span>--}}
+                        {{--</h4>--}}
+                        {{--<p class="p-md-1">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium adipisci beatae consectetur cumque doloribus maiores odio quaerat recusandae voluptas voluptatem.</p>--}}
+                        {{--<a href="#" class="btn btn-sm  btn-primary btn-outline-primary rounded-0">Book Tour</a>--}}
+                            {{--</div>--}}
+                            {{--</div>--}}
+                    {{--</div>--}}
+                {{--</div>--}}
+            {{--</div>--}}
+
+        {{--</section>--}}
         <section class="index_about_wrap mt-md-5">
             <div class="container">
                 <div class="row">
@@ -103,7 +126,7 @@
 
                     <div class="col-md-6 col-sm-12 col-12 mb-md-5">
                         <div class="index_about_img">
-                            {{--<div class="overlay" style=""></div>--}}
+                            <div class="overlay" style=""></div>
                             <img src="{{asset('images/cows.jpeg')}}" alt="about_img" width="100%">
 
                         </div>
@@ -123,7 +146,8 @@
 
         {{--Index Milk Subscription--}}
         <section class="index_milk_subscription_wrap">
-            <div class="index_milk_subscription_bg" style="background-image: url('{{asset('images/bluebg.jpeg')}}');"></div>
+            {{--<div class="index_milk_subscription_bg" style="background-image: url('{{asset('images/bluebg.jpeg')}}');"></div>--}}
+            <div class="index_milk_subscription_bg"></div>
             <div class="container">
                 <div class="row ">
                     <div class="col-md-12 col-sm-12 col-12 mt-md-5">
@@ -143,7 +167,7 @@
                                     <h5>Individual</h5>
                                 </div>
                                 <div class="card-text">
-                                    <p class="text-left">
+                                    <p class="text-justify">
                                         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium blanditiis dignissimos eos eveniet excepturi itaque laboriosam nam quis. Blanditiis corporis dignissimos dolores enim eos iure odio odit quod recusandae sunt?
                                     </p>
                                 </div>
@@ -159,7 +183,7 @@
                                     <h5>Weekly</h5>
                                 </div>
                                 <div class="card-text">
-                                    <p class="text-left">
+                                    <p class="text-justify">
                                         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium blanditiis dignissimos eos eveniet excepturi itaque laboriosam nam quis. Blanditiis corporis dignissimos dolores enim eos iure odio odit quod recusandae sunt?
                                     </p>
                                 </div>
@@ -175,7 +199,7 @@
                                     <h5>Monthly</h5>
                                 </div>
                                 <div class="card-text">
-                                    <p class="text-left">
+                                    <p class="text-justify">
                                         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium blanditiis dignissimos eos eveniet excepturi itaque laboriosam nam quis. Blanditiis corporis dignissimos dolores enim eos iure odio odit quod recusandae sunt?
                                     </p>
                                 </div>
@@ -230,12 +254,13 @@
         {{--Gallery End--}}
         {{--Index Testimonials--}}
         <section class="index_testimonials_wrap">
-            <div class="index_milk_subscription_bg" style="background-image: url('{{asset('images/bluebg.jpeg')}}');"></div>
+            {{--<div class="index_milk_subscription_bg" style="background-image: url('{{asset('images/bluebg.jpeg')}}');"></div>--}}
+            <div class="index_milk_subscription_bg"></div>
             <div class="container">
                 <div class="row">
                     <div class="col-md-12 col-sm-12 col-12 mt-md-5">
-                        <h4 class="text-center Content_title">
-                            Testimonials
+                        <h4 class="text-center Content_title text-uppercase">
+                            What Our Customers Has to Say
                             <span class="cow_bg_content text-center" style=""><img src="{{asset('images/cow.png')}}" alt="" width="20px" height="20px" class="cow_content_img"></span>
                         </h4>
                     </div>

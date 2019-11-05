@@ -87,43 +87,76 @@
 
                 </div></div>
         </div>
-        <div class="navbar_wrap_content container-fluid p-0">
+        <nav class="navbar navbar-expand-md  navbar-light" style="background-attachment: fixed;">
             <div class="container">
-                <div class="row logo_navbar_wrap">
-                    <div class="col-md-2 col-sm-6 col-6 logo_section_header p-0">
-                        <img src="{{asset('images/logo.png')}}" alt="Logo" class="" width="100%">
-                        <h6 class="bhagwansthan_logo_text">Bhagwansthan</h6>
-                    </div>
-                    <div class="col-md-10 col-sm-6 col-6">
-                        <nav class="navbar navbar-expand-lg navbar-light p-0">
+                <a href="/" class="navbar-brand text-warning font-weight-bold p-0 navbar_img_content" ><img src="{{ App\Setting::getLogo() }}" alt="" width="140px"></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsenavbar" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation" style="background-color: #007bff !important;">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse text-center" id="collapsenavbar">
+                    <ul class="navbar-nav text-center ml-auto">
+                        @foreach ($main_menu as $link=>$menu)
+                            @if (is_array($menu))
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle text-dark" href="{{ url($link) }}" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+                                       aria-expanded="false">{{ $menu[$link] }}</a>
+                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                        @foreach ($menu['sub'] as $sub_link=>$sub_menu)
+                                            <a class="dropdown-item" href="{{ url($sub_link) }}">{{ $sub_menu }}</a>
+                                        @endforeach
+                                    </div>
+                                </li>
+                            @else
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" href="{{ url($link) }}">
+                                        {{ $menu }}
+                                    </a>
+                                </li>
+                            @endif
+                        @endforeach
+
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        {{--<div class="navbar_wrap_content container-fluid p-0">--}}
+            {{--<div class="container">--}}
+                {{--<div class="row logo_navbar_wrap">--}}
+                    {{--<div class="col-md-2 col-sm-6 col-6 logo_section_header p-0">--}}
+                        {{--<img src="{{asset('images/logo.png')}}" alt="Logo" class="" width="100%">--}}
+                        {{--<h6 class="bhagwansthan_logo_text">Bhagwansthan</h6>--}}
+                    {{--</div>--}}
+                    {{--<div class="col-md-10 col-sm-6 col-6">--}}
+
+                        {{--<nav class="navbar navbar-expand-lg navbar-light p-0">--}}
 
 
                             {{--<a class="navbar-brand" href="#">Navbar</a>--}}
-                            <button class="navbar-toggler navbar-toggler-right justify-content-end" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                                <span class="navbar-toggler-icon"></span>
-                            </button>
+                            {{--<button class="navbar-toggler navbar-toggler-right justify-content-end" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">--}}
+                                {{--<span class="navbar-toggler-icon"></span>--}}
+                            {{--</button>--}}
 
-                            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                                <ul class="navbar-nav ml-md-auto ">
-                                    @foreach ($main_menu as $link=>$menu)
-                                        @if (is_array($menu))
-                                            <li class="nav-item dropdown">
-                                                <a class="nav-link dropdown-toggle" href="{{ url($link) }}" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
-                                                   aria-expanded="false">{{ $menu[$link] }}</a>
-                                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                                    @foreach ($menu['sub'] as $sub_link=>$sub_menu)
-                                                        <a class="dropdown-item" href="{{ url($sub_link) }}">{{ $sub_menu }}</a>
-                                                    @endforeach
-                                                </div>
-                                            </li>
-                                        @else
-                                            <li class="nav-item">
-                                                <a class="nav-link" href="{{ url($link) }}">
-                                                    {{ $menu }}
-                                                </a>
-                                            </li>
-                                        @endif
-                                    @endforeach
+                            {{--<div class="collapse navbar-collapse" id="navbarSupportedContent">--}}
+                                {{--<ul class="navbar-nav ml-md-auto ">--}}
+                                    {{--@foreach ($main_menu as $link=>$menu)--}}
+                                        {{--@if (is_array($menu))--}}
+                                            {{--<li class="nav-item dropdown">--}}
+                                                {{--<a class="nav-link dropdown-toggle" href="{{ url($link) }}" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"--}}
+                                                   {{--aria-expanded="false">{{ $menu[$link] }}</a>--}}
+                                                {{--<div class="dropdown-menu" aria-labelledby="navbarDropdown">--}}
+                                                    {{--@foreach ($menu['sub'] as $sub_link=>$sub_menu)--}}
+                                                        {{--<a class="dropdown-item" href="{{ url($sub_link) }}">{{ $sub_menu }}</a>--}}
+                                                    {{--@endforeach--}}
+                                                {{--</div>--}}
+                                            {{--</li>--}}
+                                        {{--@else--}}
+                                            {{--<li class="nav-item">--}}
+                                                {{--<a class="nav-link" href="{{ url($link) }}">--}}
+                                                    {{--{{ $menu }}--}}
+                                                {{--</a>--}}
+                                            {{--</li>--}}
+                                        {{--@endif--}}
+                                    {{--@endforeach--}}
                                     {{--<li class="nav-item active">--}}
                                         {{--<a class="nav-link" href="{{url('/')}}">Home <span class="sr-only">(current)</span></a>--}}
                                     {{--</li>--}}
@@ -153,16 +186,16 @@
                                     {{--</li>--}}
 
 
-                                </ul>
+                                {{--</ul>--}}
 
-                            </div>
+                            {{--</div>--}}
 
 
-                        </nav>
-                    </div>
-                </div>
-            </div>
-        </div>
+                        {{--</nav>--}}
+                    {{--</div>--}}
+                {{--</div>--}}
+            {{--</div>--}}
+        {{--</div>--}}
 
     </section>
 </header>
@@ -228,7 +261,7 @@
             </div>
             <div class="row">
                 <div class="col-md-12 col-sm-12 col-12 py-md-2">
-                    <h6 class="text-center main_footer_text">&copy; <?php echo(date('Y'));?>. All Rights Reserved.Designed and Developed By <span class="bottom_footer_span"><a href="https://www.facebook.com/roshan.kunwar.56"> Roshan Kunwar </a></span></h6>
+                    <h6 class="text-center main_footer_text">&copy; <?php echo(date('Y'));?>. All Rights Reserved.<br class="d-sm-none d-md-none d-lg-none">Designed and Developed By <span class="bottom_footer_span"><a href="https://www.facebook.com/roshan.kunwar.56"> Roshan Kunwar </a></span></h6>
                 </div>
             </div>
         </div>
