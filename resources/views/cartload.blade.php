@@ -1,3 +1,4 @@
+<div class="table-responsive">
 <table class="table table-striped">
 
         <thead class="thead-light">
@@ -36,7 +37,7 @@
 
     <tr>
         <td></td>
-        <td class="text-light" colspan="3" >Orders Amount :</td>
+        <td class="" colspan="3" >Orders Amount :</td>
         <td class="text-spl-color od-t-p">&pound;{{number_format(Cart::subtotal(),2)}}</td>
         <td></td>
     </tr>
@@ -50,3 +51,4 @@
 
 
 </table>
+</div>

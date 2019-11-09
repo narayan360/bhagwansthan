@@ -21,4 +21,22 @@ class Setting extends Model
             return asset($default);
         }
     }
+    public static function getBg($default = 'image/header_bg.jpg')
+    {
+        $setting = Setting::whereTitle('header_bg')->first();
+        if ($setting) {
+            return asset('uploads/headerbg/' . $setting->value);
+        } else {
+            return asset($default);
+        }
+    }
+    public static function getParallax($default = 'image/parallax_bg.jpg')
+    {
+        $setting = Setting::whereTitle('parallax_bg')->first();
+        if ($setting) {
+            return asset('uploads/parallaxbg/' . $setting->value);
+        } else {
+            return asset($default);
+        }
+    }
 }

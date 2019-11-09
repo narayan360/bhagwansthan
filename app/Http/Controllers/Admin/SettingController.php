@@ -17,7 +17,9 @@ class SettingController extends Controller
     {
         $settings = Setting::all();
         $logos = Setting::where('title','logo')->get();
-        return view('admin.setting.index', compact('settings','logos'));
+        $headerbgs = Setting::where('title','header_bg')->get();
+        $parallaxbgs = Setting::where('title','parallax_bg')->get();
+        return view('admin.setting.index', compact('settings','logos','headerbgs','parallaxbgs'));
     }
 
     /**
@@ -104,7 +106,15 @@ class SettingController extends Controller
 
             if($setting->value){
                 $value = public_path('uploads/logo/' . $setting->value);
+                $headerbg = public_path('uploads/headerbg/' . $setting->value);
+                $parallaxbg = public_path('uploads/parallaxbg/' . $setting->value);
                 if(file_exists($value)){
+                    unlink($value);
+                }
+                if(file_exists($headerbg)){
+                    unlink($value);
+                }
+                if(file_exists($parallaxbg)){
                     unlink($value);
                 }
             }
@@ -141,5 +151,49 @@ class SettingController extends Controller
             $setting->save();
         }
         return redirect()->route('settings.index')->with('success','Logo Saved');
+    }
+    public function headerbgChange(Request $request)
+    {
+        if($request->hasFile('headerbg'))
+        {
+            $setting = Setting::whereTitle('header_bg')->first();
+            if(!$setting)
+            {
+                $setting = new Setting;
+            }
+
+            if($setting->value && file_exists(public_path('uploads/headerbg/'.$setting->value))){
+                unlink(public_path('uploads/headerbg/'.$setting->value));
+            }
+
+            $image_name = 'bhagwansthan-headerbg'.'.'.$request->headerbg->extension();
+            $path = $request->headerbg->move('uploads/headerbg/', $image_name);
+            $setting->title = 'header_bg';
+            $setting->value = $image_name;
+            $setting->save();
+        }
+        return redirect()->route('settings.index')->with('success','Page Header Background Saved');
+    }
+    public function parallaxbgChange(Request $request)
+    {
+        if($request->hasFile('parallaxbg'))
+        {
+            $setting = Setting::whereTitle('parallax_bg')->first();
+            if(!$setting)
+            {
+                $setting = new Setting;
+            }
+
+            if($setting->value && file_exists(public_path('uploads/parallaxbg/'.$setting->value))){
+                unlink(public_path('uploads/parallaxbg/'.$setting->value));
+            }
+
+            $image_name = 'bhagwansthan-parallaxbg'.'.'.$request->parallaxbg->extension();
+            $path = $request->parallaxbg->move('uploads/parallaxbg/', $image_name);
+            $setting->title = 'parallax_bg';
+            $setting->value = $image_name;
+            $setting->save();
+        }
+        return redirect()->route('settings.index')->with('success','Parallax Background Saved');
     }
 }

@@ -181,6 +181,15 @@ img {
     -webkit-transition:all .4s ease-in-out;
     transition:all .4s ease-in-out
 }
+.page-overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    /*background-color:rgba(0,0,0,0.5);*/
+    background:rgba(0,0,0,0.5) url("../images/dot.png");
+    -webkit-transition:all .4s ease-in-out;
+    transition:all .4s ease-in-out
+}
 
 /*Slider Ends*/
 
@@ -763,4 +772,31 @@ padding: 10px 0;
 .order_item_lists_block ul
 {
     padding-bottom: 30px;
+}
+.placeorder .alert-danger
+{
+    padding: 10px 5px 0;
+    margin: 0;
+    text-align: center;
+}
+.placeorder .alert-danger p
+{
+    line-height: 0.5;
+}
+.collection-block-order {
+    padding: 10px 10px;
+    border: 1px solid black;
+    border-radius: 10px 0 10px 0;
+    box-shadow: 1px 0px 2px 1px rgba(0,0,0,0.5);
+}
+.button-border.button-primary.active {
+    background: #2C64AF;
+    color: white;
+}
+.button-border.button-primary:hover {
+    background: rgba(11,129,175,0.5);
+}
+.button-border.button-primary input[type=radio]
+{
+    display: none;
 }

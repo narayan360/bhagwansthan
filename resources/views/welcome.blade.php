@@ -217,8 +217,8 @@
         {{--Parallax--}}
         <section class="container-fluid p-0">
 
-        <div class="parallax" style="background-image: url('{{asset('images/cows.jpeg')}}')">
-            <div class="overlay" style="overflow: hidden; position: inherit"></div>
+        <div class="parallax" style="background-image: url('{{ App\Setting::getParallax() }}')">
+            <div class="page-overlay" style="overflow: hidden; position: inherit"></div>
 
         </div>
         </section>

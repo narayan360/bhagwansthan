@@ -52,10 +52,9 @@
                 <div class="row ">
                     <div class="col-md-6 col-sm-6 col-12">
                         <ul class="top_social_link list-inline text-dark">
-                            <li class="list-inline-item"><a href="#"><i class="fa fa-facebook-f"></i></a></li>
-                            <li class="list-inline-item"><a href="#"><i class="fa fa-instagram"></i></a></li>
-                            <li class="list-inline-item"><a href="#"><i class="fa fa-twitter"></i></a></li>
-
+                            @foreach($socials as $social)
+                            <li class="list-inline-item"><a href="{{$social->link}}"><i class="fa fa-{{$social->icon}}"></i></a></li>
+                            @endforeach
                         </ul>
                     </div>
                     <div class="col-md-6 col-sm-12 Login_shopping_wrap">
@@ -80,7 +79,9 @@
                             <li class="list-inline-item"><a href="{{route('login')}}" class="">Login</a></li>
                             <li class="list-inline-item"><a href="{{url('register')}}" class="">Register</a></li>
                             @endauth
-                            <li class="list-inline-item"><a href="#" class=""><i class="fa fa-shopping-cart"></i></a></li>
+                            <li id="topcartload" class="list-inline-item">
+                                <i class="fa fa-shopping-cart" style="color: white;"></i> <a href="#" class=""> {{Cart::count()}} Item(s) Rs.{{number_format(Cart::subtotal(),2)}}</a>
+                            </li>
                             <li class="list-inline-item"><a href="#" class="btn btn-sm btn-primary rounded-0">Shop Now</a></li>
                         </ul>
                     </div>
@@ -227,7 +228,7 @@
                     </div>
                 </div>
                 {{--TOP LINKS--}}
-                <div class="col-md-4 col-sm-12 col-12 col-md-offset-1">
+                <div class="col-md-4 col-sm-12 col-12">
                     <h5 class="text-left footer_title"> Quick Links</h5>
                     <div class="quick_links">
                         <ul class="list-unstyled">
@@ -242,7 +243,7 @@
                     </div>
                 </div>
                 {{--CONTACT--}}
-                <div class="col-md-4 col-sm-12 col-12 col-md-offset-1">
+                <div class="col-md-3 col-md-offset-2 col-sm-12 col-12">
                     <h5 class="text-left footer_title">Get In Touch</h5>
                     <div class="contacts_links">
                         <ul class="list-unstyle">
@@ -290,16 +291,28 @@
 <script src="{{asset('vendors/loadingoverlay.min.js') }}"></script>
 {{--Toastr--}}
 <script src="{{asset('vendors/toastr/toastr.min.js')}}"></script>
-<script>
-    toastr.options = {
-        "positionClass": "toast-bottom-right",
-    }
-</script>
+
 
 <script src="{{asset('js/script.js')}}"></script>
 
 @yield('script')
+
 <script>
+    function topcartload() {
+        url = "{{ route('topcartload') }}";
+        $.ajax(url,{
+            type: 'post',
+            start: $('#topcartload').LoadingOverlay('show'),
+            data: {
+                _token: "{{csrf_token()}}"
+            },
+            success:function (response) {
+                $('#topcartload').html(response);
+                $('#topcartload').LoadingOverlay('hide');
+            }
+        });
+    }
+
     function sidecartload() {
         url = "{{ route('sidecartload') }}";
         $.ajax(url,{
@@ -340,7 +353,7 @@
             data: _data,
             start: parent.LoadingOverlay('show'),
             success:function (response) {
-
+                topcartload();
                 sidecartload();
                 mobilecartload();
                 toastr.success(response.message);
@@ -360,7 +373,7 @@
             data: _data,
             start: parent.LoadingOverlay('show'),
             success:function (response) {
-//                topcartload();
+                topcartload();
                 sidecartload();
                 cartload();
                 toastr.success(response.message);

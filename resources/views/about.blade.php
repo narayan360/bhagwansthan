@@ -12,8 +12,8 @@
 
 <main>
     <section class="banner_wrap container-fluid p-0">
-        <div class="overlay"></div>
-        <div class="banner_wrap_bg" style="background-image: url('{{asset('images/cow2.jpeg')}}');"></div>
+        <div class="page-overlay"></div>
+        <div class="banner_wrap_bg" style="background-image: url('{{ App\Setting::getBg() }}');"></div>
         <div class="container">
         <div class="row">
             <div class="col-md-12 col-sm-12 col-12">

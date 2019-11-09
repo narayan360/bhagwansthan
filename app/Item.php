@@ -17,6 +17,7 @@ class Item extends Model
         return $this->belongsTo('App\Category');
     }
 
+
     public function getCategoryTitleAttribute()
     {
         return $this->category ? $this->category->title : 'None';

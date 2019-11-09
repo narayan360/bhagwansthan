@@ -12,8 +12,8 @@
 
     <main>
         <section class="banner_wrap container-fluid p-0">
-            <div class="overlay"></div>
-            <div class="banner_wrap_bg" style="background-image: url('{{asset('images/cow2.jpeg')}}');"></div>
+            <div class="page-overlay"></div>
+            <div class="banner_wrap_bg" style="background-image: url('{{ App\Setting::getBg() }}');"></div>
             <div class="container">
                 <div class="row">
                     <div class="col-md-12 col-sm-12 col-12">
@@ -50,7 +50,7 @@
 
                                        {{--<div class="overlay"></div>--}}
 
-                                       <a  class="col-md-4 col-sm-12 col-12 mb-md-4 hov-img-zoom" href="{{ asset('uploads/gallery/' . $gallery->image) }}" title="{{ $gallery->caption }}">
+                                       <a  class="col-md-4 col-sm-12 col-12 mb-4 hov-img-zoom" href="{{ asset('uploads/gallery/' . $gallery->image) }}" title="{{ $gallery->caption }}">
                                        <img src="{{asset('uploads/gallery/'.$gallery->image)}}" alt="{{$gallery->image}}" width="100%" class="img-fluid">
                                        </a>
 

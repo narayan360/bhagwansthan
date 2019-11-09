@@ -78,6 +78,7 @@
                         <li><a href="{{ route('galleries.index') }}" {!!(request()->segment(2) == 'galleries' ? 'class="active"' : null) !!}><i class="lnr lnr-camera"></i> <span>Galleries</span></a></li>
                         <li><a href="{{ route('videos.index') }}" {!!(request()->segment(2) == 'videos' ? 'class="active"' : null) !!}><i class="lnr lnr-film-play"></i> <span>Videos</span></a></li>
                         <li><a href="{{ route('reviews.index') }}" {!!(request()->segment(2) == 'reviews' ? 'class="active"' : null) !!}><i class="lnr lnr-bubble"></i> <span>Reviews</span></a></li>
+                        <li><a href="{{ route('socials.index') }}"><i class="lnr lnr-link"></i> <span>Social</span></a></li>
                         <li><a href="{{ route('milks.index') }}" {!!(request()->segment(2) == 'milks' ? 'class="active"' : null) !!}><i class="lnr lnr-user"></i> <span>Milk Subs</span></a></li>
                         <li><a href="{{ route('contacts.index') }}"{!!(request()->segment(2) == 'contacts' ? 'class="active"' : null) !!}><i class="lnr lnr-bubble"></i> <span>Messages</span></a></li>
 
