@@ -286,6 +286,7 @@
 {{--Owl CArousel--}}
 <script src="{{asset('vendor/owl-carousel/owl.carousel.min.js')}}"></script>
 
+<script type="text/javascript" src="{{asset('vendor/js/sticky-kit.js')}}"></script>
 {{--lodash--}}
 <script src="{{asset('vendors/lodash.min.js') }}"></script>
 <script src="{{asset('vendors/loadingoverlay.min.js') }}"></script>

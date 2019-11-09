@@ -45,8 +45,9 @@ class Ordertime extends Model
 
 
         $start_time =  \App\Setting::ofValue('start_time');
+//        dd($start_time);
         $end_time = \App\Setting::ofValue('end_time');
-
+//        dd($end_time);
 
         $start_time = strtotime($start_time);
         $end_time = strtotime($end_time);
@@ -86,7 +87,7 @@ class Ordertime extends Model
 
         }
 
-        // dd($time_option);
+         dd($time_option);
 
         return $time_option;
     }

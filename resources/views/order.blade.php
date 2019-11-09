@@ -279,32 +279,32 @@
 @stop
 @section('script')
 
-    {{--<script>--}}
-        {{--$(function() {--}}
-            {{--$('.menu_category').on('click', function (e) {--}}
-                {{--e.preventDefault();--}}
-                {{--var target = $(this).attr('href');--}}
-                {{--$('html, body').animate({--}}
-                    {{--scrollTop: ($(target).offset().top)--}}
-                {{--}, 2000);--}}
-            {{--});--}}
-            {{--$(".sidebarmenu").stick_in_parent();--}}
-            {{--$(".sidebarcart").stick_in_parent();--}}
+    <script>
+        $(function() {
+            $('.menu_category').on('click', function (e) {
+                e.preventDefault();
+                var target = $(this).attr('href');
+                $('html, body').animate({
+                    scrollTop: ($(target).offset().top)
+                }, 2000);
+            });
+            $(".sidebarmenu").stick_in_parent();
+            $(".sidebarcart").stick_in_parent();
 
-            {{--$('.mobilecategory').affix({--}}
-                {{--offset: {--}}
-                    {{--top: $('.mobilecategory').offset().top,--}}
-                    {{--bottom: function () {--}}
-                        {{--return (this.bottom = $('footer').outerHeight(true) + 20)--}}
-                    {{--}--}}
-                {{--}--}}
-            {{--});--}}
-            {{--$('.mobilecategory').on('affix.bs.affix', function () {--}}
-                {{--$(this).css('z-index', 99);--}}
-                {{--$(this).css('width', ($(this).width()));--}}
-            {{--});--}}
+            $('.mobilecategory').affix({
+                offset: {
+                    top: $('.mobilecategory').offset().top,
+                    bottom: function () {
+                        return (this.bottom = $('footer').outerHeight(true) + 20)
+                    }
+                }
+            });
+            $('.mobilecategory').on('affix.bs.affix', function () {
+                $(this).css('z-index', 99);
+                $(this).css('width', ($(this).width()));
+            });
 
 
-        {{--});--}}
-        {{--</script>--}}
+        });
+        </script>
     @stop

@@ -114,6 +114,7 @@ Route::post('mobilecartload','OrderController@mobilecartload')->name('mobilecart
 Route::get('orderdetails','OrderController@orderdetails')->name('orderdetails');
 
 Route::post('placeorder','OrderController@placeorder')->name('placeorder');
+Route::post('orderdetails','OrderController@orderstore');
 Route::post('delivery_time_load','OrderController@delivery_time_load')->name('delivery_time_load');
 
 Route::get('checkout','CheckoutController@index')->name('checkout');
