@@ -50,16 +50,22 @@ class Ordertime extends Model
 //        dd($end_time);
 
         $start_time = strtotime($start_time);
+//        dd($start_time);
         $end_time = strtotime($end_time);
 
         $start_hr = (int) date('H', $start_time);
+//        dd($start_hr);
         $start_min = (int) date('i', $start_time);
+//        dd($start_min);
         $end_hr = (int) date('H', $end_time);
+//        dd($end_hr);
         $end_min = (int) date('i', $end_time);
+//        dd($end_min);
         if($end_min){
             $end_hr = $end_hr +1;
         }
         $today = date('m/d/Y');
+//        dd($today);
         if($date && $today <> $date){
             for ($i=$start_hr; $i < $end_hr; $i++) {
                 foreach (self::$ord_min as $min) {
@@ -67,6 +73,7 @@ class Ordertime extends Model
                     $str_time = strtotime($i.':'.$min);
                     if($end_time >= $str_time){
                         $time_option[$time] = $time;
+//                        dd($time_option);
                     }
                 }
             }
@@ -74,12 +81,18 @@ class Ordertime extends Model
 
             for ($i=$start_hr; $i < $end_hr; $i++) {
                 foreach (self::$ord_min as $min) {
+                    $current_time_test=date('H:i:s');
+//                    dd($current_time_test);
                     $current_time = strtotime(date('H:s'));
+//                    dd($current_time);
                     $current_time = strtotime('+ 45 Minutes', $current_time);
                     $time = $i.':'.$min;
+//                    dd($time);
                     $str_time = strtotime($i.':'.$min);
+//                    dd($str_time);
                     if($str_time > $current_time && $end_time >= $str_time){
                         $time_option[$time] = $time;
+//                        dd($time_option);
                     }
                 }
 
@@ -87,7 +100,7 @@ class Ordertime extends Model
 
         }
 
-         dd($time_option);
+//         dd($time_option);
 
         return $time_option;
     }

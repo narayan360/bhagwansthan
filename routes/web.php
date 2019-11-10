@@ -119,3 +119,4 @@ Route::post('delivery_time_load','OrderController@delivery_time_load')->name('de
 
 Route::get('checkout','CheckoutController@index')->name('checkout');
 Route::post('checkout','CheckoutController@checkout');
+Route::get('checkout/complete','CheckoutController@complete')->name('complete');
