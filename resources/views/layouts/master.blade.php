@@ -53,7 +53,7 @@
                     <div class="col-md-6 col-sm-6 col-12">
                         <ul class="top_social_link list-inline text-dark">
                             @foreach($socials as $social)
-                            <li class="list-inline-item"><a href="{{$social->link}}"><i class="fa fa-{{$social->icon}}"></i></a></li>
+                            <li class="list-inline-item"><a href="{{$social->link}}" target="_blank"><i class="fa fa-{{$social->icon}}"></i></a></li>
                             @endforeach
                         </ul>
                     </div>
@@ -63,7 +63,7 @@
                             <li class="list-inline-item dropdown">
                                 <a href="#" data-toggle="dropdown"><span class="fa fa-user"></span> {{Auth::user()->name}} <span class="caret"></span></a>
                                 <ul class="dropdown-menu" style="right: 0;left: auto;">
-                                    <li class="dropdown-menu-item auth-dropdown-item"><a style="" href="" >  Profile</a></li>
+                                    <li class="dropdown-menu-item auth-dropdown-item"><a style="" href="{{route('profile')}}" >  Profile</a></li>
                                     <li class="dropdown-menu-item auth-dropdown-item">
                                         <a style="" href="{{ route('admin.logout') }}"
                                            onclick="event.preventDefault();
@@ -215,15 +215,11 @@
                     </div>
                     <div class="social_box text-left">
                         <ul class="list-inline">
+                            @foreach($socials as $social)
                             <li class="list-inline-item">
-                                <a href="#"><i class="fa fa-facebook-f"></i></a>
+                                <a href="{{ $social->link }}" target="_blank"><i class="fa fa-{{ $social->icon }}"></i></a>
                             </li>
-                            <li class="list-inline-item">
-                                <a href="#"><i class="fa fa-instagram"></i></a>
-                            </li>
-                            <li class="list-inline-item">
-                                <a href="#"><i class="fa fa-twitter"></i></a>
-                            </li>
+                            @endforeach
                         </ul>
                     </div>
                 </div>

@@ -49,6 +49,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['admin'], 'namespace' => 'Ad
     Route::post('categories/order', 'CategoryController@order')->name('categories.order');
     Route::resource('items', 'ItemController');
     Route::post('items/order', 'ItemController@order')->name('items.order');
+    Route::resource('orders', 'OrderController');
 });
 
 
@@ -115,8 +116,12 @@ Route::get('orderdetails','OrderController@orderdetails')->name('orderdetails');
 
 Route::post('placeorder','OrderController@placeorder')->name('placeorder');
 Route::post('orderdetails','OrderController@orderstore');
-Route::post('delivery_time_load','OrderController@delivery_time_load')->name('delivery_time_load');
 
 Route::get('checkout','CheckoutController@index')->name('checkout');
 Route::post('checkout','CheckoutController@checkout');
 Route::get('checkout/complete','CheckoutController@complete')->name('complete');
+
+Route::group(['middleware' => ['auth']], function(){
+    Route::get('profile', 'UserController@profile')->name('profile');
+    Route::post('changepassword', 'UserController@changepassword')->name('changepassword');
+});
