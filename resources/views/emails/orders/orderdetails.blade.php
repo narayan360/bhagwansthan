@@ -22,13 +22,13 @@ We thank you for choosing us.
         <tr bgcolor="white">
             <td style="padding: 5px 10px">{{$item->item}}</td>
             <td style="padding: 5px 10px" align="right">{{$item->qty}}</td>
-            <td style="padding: 5px 10px" align="right">&pound;{{$item->price}}</td>
-            <td style="padding: 5px 10px" align="right">&pound;{{$item->total}}</td>
+            <td style="padding: 5px 10px" align="right">Rs.{{$item->price}}</td>
+            <td style="padding: 5px 10px" align="right">Rs.{{$item->total}}</td>
         </tr>
     @endforeach
     <tr bgcolor="#f1f1f1">
         <td style="padding: 5px 10px" colspan="3" align="right">Total</td>
-        <td style="padding: 5px 10px" align="right">&pound;{{$order->total}}</td>
+        <td style="padding: 5px 10px" align="right">Rs.{{$order->total}}</td>
     </tr>
 
 </table>

@@ -24,10 +24,12 @@ class HomeController extends Controller
     public function index()
     {
         $data['page'] = \App\Page::find('1');
+        $data['about']= \App\Page::where('slug', 'aboutus')->first();
+//        dd($data['about']);
         $data['slides'] = \App\Slide::latest()->take(3)->get();
         $data['videos'] = \App\Video::latest()->take(3)->get();
         $data['gallaries'] = \App\Gallery::latest()->take(4)->get();
-        $data['reviews']=\App\Review::latest()->take(2)->active()->get();
+        $data['reviews']=\App\Review::latest()->take(3)->active()->get();
         return view('welcome', $data);
     }
 }

@@ -504,7 +504,42 @@ padding: 10px 0;
     color:blue;
     text-shadow: none;
 }
+.banner_sections_parallax
+{
+    padding: 170px 0;
+}
+.banner_sections_parallax span
+{
+    color:white;
+    font-weight: bolder;
+    font-size: 24px;
+    /*text-shadow: 3px 3px 4px rgba(51,138,206,0.96)*/
+}
+.banner_sections_parallax h1
+{
+    color:white;
+    font-weight: bolder;
+    text-shadow: 3px 3px 4px rgba(51,138,206,0.96)
+}
+.txt55
+{
+    font-weight: 500;
+    font-size: 18px;
+    color: #333333;
+    text-transform:capitalize;
+    letter-spacing: 1px;
+    padding-top: 3px;
 
+}
+.btn_login
+{
+
+    background: #007BFF;
+    padding: 5px;
+    color: white;
+    margin-left: 5px;
+
+}
 /*Inner Pages*/
 .banner_wrap
 {
@@ -519,6 +554,7 @@ padding: 10px 0;
     padding: 100px 0;
 
 }
+
 .banner_sections h4
 {
     color:white;

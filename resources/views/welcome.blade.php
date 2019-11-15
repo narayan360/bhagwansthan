@@ -124,21 +124,33 @@
 
                     </div>
 
+                    @if($about->image)
                     <div class="col-md-6 col-sm-12 col-12 mb-md-5">
+
                         <div class="index_about_img">
-                            <div class="overlay" style=""></div>
-                            <img src="{{asset('images/cows.jpeg')}}" alt="about_img" width="100%">
+                            {{--<div class="overlay" style=""></div>--}}
+                            <img src="{{asset('uploads/page/'.$about->image)}}" alt="about_img" width="100%">
 
                         </div>
                     </div>
                     <div class="col-md-6 col-sm-12 col-12">
                         <div class="panel text-left">
-                            <p class="p-md-1">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium architecto, ipsum molestiae nostrum odit sunt tempore. Accusantium esse hic non?</p>
-                            <p class="p-md-1">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium adipisci beatae consectetur cumque doloribus maiores odio quaerat recusandae voluptas voluptatem.</p>
-                            <a href="#" class="btn btn-sm  btn-primary btn-outline-primary rounded-0">Book Tour</a>
+                            <p class="py-md-3 px-md-2">{!! str_limit($about->details,360) !!}</p>
+
+                            <a href="{{url('aboutus')}}" class="btn btn-sm  btn-primary btn-outline-primary rounded-0">Learn More</a>
                         </div>
 
                     </div>
+                        @else
+                        <div class="col-md-8 col-sm-12 col-12 m-auto">
+                            <div class="about-panel mb-2 mb-md-4 text-center">
+                                <p class="">{!! str_limit($about->details,360) !!}</p>
+                                <a href="{{url('about-us')}}" class="btn btn-sm  btn-primary btn-outline-primary rounded-0">Learn More</a>
+                            </div>
+
+                        </div>
+
+                        @endif
                 </div>
             </div>
         </section>
@@ -164,14 +176,14 @@
                             <img class="card-img-top" src="{{asset('images/cows.jpeg')}}" alt="Card image">
                             <div class="card-body">
                                 <div class="card-title">
-                                    <h5>Individual</h5>
+                                    <h5>{{App\Label::ofValue('milk:daily')}}</h5>
                                 </div>
                                 <div class="card-text">
                                     <p class="text-justify">
-                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium blanditiis dignissimos eos eveniet excepturi itaque laboriosam nam quis. Blanditiis corporis dignissimos dolores enim eos iure odio odit quod recusandae sunt?
+                                       {!! str_limit(\App\Label::ofValue('home:daily_para'),135) !!}
                                     </p>
                                 </div>
-                                <a href="#" class="btn btn-primary btn-outline-primary btn-sm rounded-0">Subscribe Now</a>
+                                <a href="{{url('milk-subscription')}}" class="btn btn-primary btn-outline-primary btn-sm rounded-0">Subscribe Now</a>
                             </div>
                         </div>
                         </div>
@@ -180,14 +192,14 @@
                             <img class="card-img-top" src="{{asset('images/cows.jpeg')}}" alt="Card image">
                             <div class="card-body">
                                 <div class="card-title">
-                                    <h5>Weekly</h5>
+                                    <h5>{{App\Label::ofValue('milk:weekly')}}</h5>
                                 </div>
                                 <div class="card-text">
                                     <p class="text-justify">
-                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium blanditiis dignissimos eos eveniet excepturi itaque laboriosam nam quis. Blanditiis corporis dignissimos dolores enim eos iure odio odit quod recusandae sunt?
+                                        {!! str_limit(\App\Label::ofValue('home:weekly_para'),135) !!}
                                     </p>
                                 </div>
-                                <a href="#" class="btn btn-primary btn-outline-primary btn-sm rounded-0">Subscribe Now</a>
+                                <a href="{{url('milk-subscription')}}" class="btn btn-primary btn-outline-primary btn-sm rounded-0">Subscribe Now</a>
                             </div>
                         </div>
                         </div>
@@ -196,14 +208,14 @@
                             <img class="card-img-top" src="{{asset('images/cows.jpeg')}}" alt="Card image">
                             <div class="card-body">
                                 <div class="card-title">
-                                    <h5>Monthly</h5>
+                                    <h5>{{App\Label::ofValue('milk:monthly')}}</h5>
                                 </div>
                                 <div class="card-text">
                                     <p class="text-justify">
-                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium blanditiis dignissimos eos eveniet excepturi itaque laboriosam nam quis. Blanditiis corporis dignissimos dolores enim eos iure odio odit quod recusandae sunt?
+                                        {!! str_limit(\App\Label::ofValue('home:monthly_para'),135) !!}
                                     </p>
                                 </div>
-                                <a href="#" class="btn btn-primary btn-outline-primary btn-sm rounded-0">Subscribe Now</a>
+                                <a href="{{url('milk-subscription')}}" class="btn btn-primary btn-outline-primary btn-sm rounded-0">Subscribe Now</a>
                             </div>
                         </div>
                         </div>
@@ -218,7 +230,26 @@
         <section class="container-fluid p-0">
 
         <div class="parallax" style="background-image: url('{{ App\Setting::getParallax() }}')">
-            <div class="page-overlay" style="overflow: hidden; position: inherit"></div>
+            <div class="overlay" style="overflow: hidden; height: inherit;"></div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 col-sm-12 col-12">
+                        <div class="banner_sections_parallax text-center" >
+                            <span class="">
+                                {{\App\Label::ofValue('home:parallax_top')}}
+                            </span>
+
+                            <h1 class="">
+                                {{\App\Label::ofValue('home:parallax_heading')}}
+                            </h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+                {{--<h4>{{App\Label::ofValue('parallax_heading')}}</h4>--}}
+                {{--<h6>{{App\Label::ofValue('parallax_content')}}</h6>--}}
+
 
         </div>
         </section>
@@ -268,27 +299,39 @@
                         <div id="myCarousel" class="carousel slide" data-ride="carousel">
                             <!-- Carousel indicators -->
                             <ol class="carousel-indicators">
-                                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-                                <li data-target="#myCarousel" data-slide-to="1"></li>
-                                <li data-target="#myCarousel" data-slide-to="2"></li>
+                                <?php $i=0; ?>
+                                @foreach($reviews as $key =>$review)
+                                <li data-target="#myCarousel" data-slide-to="{{$i++}}" class="{{$key==0 ? 'active' : ''}}"></li>
+                                @endforeach
+
                             </ol>
                             <!-- Wrapper for carousel items -->
                             <div class="carousel-inner">
-                                <div class="item carousel-item active">
-                                    <div class="img-box"><img src="{{asset('images/cows.jpeg')}}" alt=""></div>
-                                    <p class="testimonial">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam eu sem tempor, varius quam at, luctus dui. Mauris magna metus, dapibus nec turpis vel, semper malesuada ante. Idac bibendum scelerisque non non purus. Suspendisse varius nibh non aliquet.</p>
-                                    <p class="overview"><b>ABC</b>,xyz</p>
+                                @foreach($reviews as $key=>$review)
+                                <div class="item carousel-item {{$key==0 ? 'active' : ''}}">
+
+                                    <div class="img-box">
+                                        @if(isset($review->image) && file_exists(public_path('/uploads/reviews/'.$review->image)))
+                                            <img src="{{$review->image('300x300') }}" alt="image" width="150" height="150">
+                                        @else
+                                            <img src="{{ asset('images/user.png') }}" width="150" height="150">
+                                        @endif
+
+                                    </div>
+                                    <p class="testimonial">{!! str_limit(strip_tags($review->details),120) !!}</p>
+                                    <p class="overview"><b> {{$review->name}} {{ $review->country?$review->country->name:'' }}</b></p>
                                 </div>
-                                <div class="item carousel-item">
-                                    <div class="img-box"><img src="{{asset('images/cows.jpeg')}}" alt=""></div>
-                                    <p class="testimonial">Vestibulum quis quam ut magna consequat faucibus. Pellentesque eget nisi a mi suscipit tincidunt. Utmtc tempus dictum risus. Pellentesque viverra sagittis quam at mattis. Suspendisse potenti. Aliquam sit amet gravida nibh, facilisis gravida odio.</p>
-                                    <p class="overview"><b>PQR</b>,pqr</p>
-                                </div>
-                                <div class="item carousel-item">
-                                    <div class="img-box"><img src="{{asset('images/cows.jpeg')}}" alt=""></div>
-                                    <p class="testimonial">Phasellus vitae suscipit justo. Mauris pharetra feugiat ante id lacinia. Etiam faucibus mauris id tempor egestas. Duis luctus turpis at accumsan tincidunt. Phasellus risus risus, volutpat vel tellus ac, tincidunt fringilla massa. Etiam hendrerit dolor eget rutrum.</p>
-                                    <p class="overview"><b>MNO</b>,mno</p>
-                                </div>
+                                @endforeach
+                                {{--<div class="item carousel-item">--}}
+                                    {{--<div class="img-box"><img src="{{asset('images/cows.jpeg')}}" alt=""></div>--}}
+                                    {{--<p class="testimonial">Vestibulum quis quam ut magna consequat faucibus. Pellentesque eget nisi a mi suscipit tincidunt. Utmtc tempus dictum risus. Pellentesque viverra sagittis quam at mattis. Suspendisse potenti. Aliquam sit amet gravida nibh, facilisis gravida odio.</p>--}}
+                                    {{--<p class="overview"><b>PQR</b>,pqr</p>--}}
+                                {{--</div>--}}
+                                {{--<div class="item carousel-item">--}}
+                                    {{--<div class="img-box"><img src="{{asset('images/cows.jpeg')}}" alt=""></div>--}}
+                                    {{--<p class="testimonial">Phasellus vitae suscipit justo. Mauris pharetra feugiat ante id lacinia. Etiam faucibus mauris id tempor egestas. Duis luctus turpis at accumsan tincidunt. Phasellus risus risus, volutpat vel tellus ac, tincidunt fringilla massa. Etiam hendrerit dolor eget rutrum.</p>--}}
+                                    {{--<p class="overview"><b>MNO</b>,mno</p>--}}
+                                {{--</div>--}}
                             </div>
                             <!-- Carousel controls -->
                             <a class="carousel-control left carousel-control-prev" href="#myCarousel" data-slide="prev">

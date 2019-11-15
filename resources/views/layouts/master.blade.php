@@ -80,9 +80,9 @@
                             <li class="list-inline-item"><a href="{{url('register')}}" class="">Register</a></li>
                             @endauth
                             <li id="topcartload" class="list-inline-item">
-                                <i class="fa fa-shopping-cart" style="color: white;"></i> <a href="#" class=""> {{Cart::count()}} Item(s) Rs.{{number_format(Cart::subtotal(),2)}}</a>
+                                <i class="fa fa-shopping-cart" style="color: white;"></i> <a href="{{route('orderdetails')}}" class=""> {{Cart::count()}} Item(s) Rs.{{number_format(Cart::subtotal(),2)}}</a>
                             </li>
-                            <li class="list-inline-item"><a href="#" class="btn btn-sm btn-primary rounded-0">Shop Now</a></li>
+                            <li class="list-inline-item"><a href="{{route('order')}}" class="btn btn-sm btn-primary rounded-0">Shop Now</a></li>
                         </ul>
                     </div>
 
@@ -120,83 +120,7 @@
                 </div>
             </div>
         </nav>
-        {{--<div class="navbar_wrap_content container-fluid p-0">--}}
-            {{--<div class="container">--}}
-                {{--<div class="row logo_navbar_wrap">--}}
-                    {{--<div class="col-md-2 col-sm-6 col-6 logo_section_header p-0">--}}
-                        {{--<img src="{{asset('images/logo.png')}}" alt="Logo" class="" width="100%">--}}
-                        {{--<h6 class="bhagwansthan_logo_text">Bhagwansthan</h6>--}}
-                    {{--</div>--}}
-                    {{--<div class="col-md-10 col-sm-6 col-6">--}}
 
-                        {{--<nav class="navbar navbar-expand-lg navbar-light p-0">--}}
-
-
-                            {{--<a class="navbar-brand" href="#">Navbar</a>--}}
-                            {{--<button class="navbar-toggler navbar-toggler-right justify-content-end" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">--}}
-                                {{--<span class="navbar-toggler-icon"></span>--}}
-                            {{--</button>--}}
-
-                            {{--<div class="collapse navbar-collapse" id="navbarSupportedContent">--}}
-                                {{--<ul class="navbar-nav ml-md-auto ">--}}
-                                    {{--@foreach ($main_menu as $link=>$menu)--}}
-                                        {{--@if (is_array($menu))--}}
-                                            {{--<li class="nav-item dropdown">--}}
-                                                {{--<a class="nav-link dropdown-toggle" href="{{ url($link) }}" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"--}}
-                                                   {{--aria-expanded="false">{{ $menu[$link] }}</a>--}}
-                                                {{--<div class="dropdown-menu" aria-labelledby="navbarDropdown">--}}
-                                                    {{--@foreach ($menu['sub'] as $sub_link=>$sub_menu)--}}
-                                                        {{--<a class="dropdown-item" href="{{ url($sub_link) }}">{{ $sub_menu }}</a>--}}
-                                                    {{--@endforeach--}}
-                                                {{--</div>--}}
-                                            {{--</li>--}}
-                                        {{--@else--}}
-                                            {{--<li class="nav-item">--}}
-                                                {{--<a class="nav-link" href="{{ url($link) }}">--}}
-                                                    {{--{{ $menu }}--}}
-                                                {{--</a>--}}
-                                            {{--</li>--}}
-                                        {{--@endif--}}
-                                    {{--@endforeach--}}
-                                    {{--<li class="nav-item active">--}}
-                                        {{--<a class="nav-link" href="{{url('/')}}">Home <span class="sr-only">(current)</span></a>--}}
-                                    {{--</li>--}}
-                                    {{--<li class="nav-item">--}}
-                                        {{--<a href="{{url('/aboutus')}}" class="nav-link">About Us</a>--}}
-                                    {{--</li>--}}
-                                    {{--<li class="nav-item">--}}
-                                        {{--<a href="{{url('/mission')}}" class="nav-link">Our Mission</a>--}}
-                                    {{--</li>--}}
-                                    {{--<li class="nav-item">--}}
-                                        {{--<a href="{{url('/vision')}}" class="nav-link">Our Vision</a>--}}
-                                    {{--</li>--}}
-                                    {{--<li class="nav-item">--}}
-                                        {{--<a href="#" class="nav-link">Products</a>--}}
-                                    {{--</li>--}}
-                                    {{--<li class="nav-item">--}}
-                                        {{--<a href="#" class="nav-link">Services</a>--}}
-                                    {{--</li>--}}
-                                    {{--<li class="nav-item">--}}
-                                        {{--<a href="#" class="nav-link">Tours</a>--}}
-                                    {{--</li>--}}
-                                    {{--<li class="nav-item">--}}
-                                        {{--<a href="{{url('/gallery')}}" class="nav-link">Gallery</a>--}}
-                                    {{--</li>--}}
-                                    {{--<li class="nav-item">--}}
-                                        {{--<a href="{{url('/contact')}}" class="nav-link">Contact Us</a>--}}
-                                    {{--</li>--}}
-
-
-                                {{--</ul>--}}
-
-                            {{--</div>--}}
-
-
-                        {{--</nav>--}}
-                    {{--</div>--}}
-                {{--</div>--}}
-            {{--</div>--}}
-        {{--</div>--}}
 
     </section>
 </header>
@@ -211,7 +135,7 @@
                 {{--LOGO AND SOCIAL--}}
                 <div class="col-md-4 col-sm-12 col-12">
                     <div class="logo_box">
-                        <img src="{{asset('images/logo.png')}}" alt=""  width="50%">
+                        <img src="{{ App\Setting::getLogo() }}" alt=""  width="50%">
                     </div>
                     <div class="social_box text-left">
                         <ul class="list-inline">

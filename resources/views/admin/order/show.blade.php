@@ -39,13 +39,13 @@ Order Details [#{{$order->id}}]
 					<tr>
 						<td>{{$item->item}}</td>
 						<td class="text-right">{{$item->qty}}</td>
-						<td class="text-right">&pound;{{$item->price}}</td>
-						<td class="text-right">&pound;{{$item->total}}</td>
+						<td class="text-right">Rs.{{$item->price}}</td>
+						<td class="text-right">Rs.{{$item->total}}</td>
 					</tr>
 					@endforeach
 					<tr>
 						<td colspan="3" class="text-right">Total</td>
-						<td class="text-right">&pound;{{$order->total}}</td>
+						<td class="text-right">Rs.{{$order->total}}</td>
 					</tr>
 				</tbody>
 			</table>

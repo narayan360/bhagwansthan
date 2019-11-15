@@ -7,7 +7,7 @@
 @section('content')
     <section class="banner_wrap container-fluid p-0">
         <div class="overlay"></div>
-        <div class="banner_wrap_bg" style="background-image: url('{{asset('images/cow2.jpeg')}}');"></div>
+        <div class="banner_wrap_bg" style="background-image:  url('{{ App\Setting::getBg() }}');"></div>
         <div class="container">
             <div class="row">
                 <div class="col-md-12 col-sm-12 col-12">
@@ -112,7 +112,7 @@
                     <div class="col-md-3"></div>
                     <div class="col-md-6">
                     <span class="txt9">
-                            By logging I agree to the <a href="">Terms of Use</a> and <a href="">Privacy Policy</a>
+                            By signing I agree to the <a href="{{url('terms')}}">Terms of Use</a> and <a href="{{url('privacy-policy')}}">Privacy Policy</a>
                     </span>
 
                     </div>
@@ -123,7 +123,7 @@
                     <div class="col-md-6">
                         <div class="wrap-btn-booking mt-3 mb-2">
                             <!-- Button3 -->
-                            <button type="submit" class="btn btn-primary">
+                            <button type="submit" class="btn btn-primary rounded-0">
                                 Signup
                             </button>
                         </div>

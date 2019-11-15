@@ -62,7 +62,7 @@ class ReviewController extends Controller
 
         if ($request->hasFile('image')) {
             $image_name = 'review-'.$review->id . '.'.$request->image->extension();
-            $path = $request->image->move('public/uploads/reviews/', $image_name);
+            $path = $request->image->move('uploads/reviews/', $image_name);
             $review->image = $image_name;
             $review->save();
         }
@@ -122,7 +122,7 @@ class ReviewController extends Controller
                 unlink(public_path('uploads/reviews/'.$review->image));
             }
             $image_name = 'review-'.$review->id . '.'.$request->image->extension();
-            $path = $request->image->move('public/uploads/reviews/', $image_name);
+            $path = $request->image->move('uploads/reviews/', $image_name);
             $review->image = $image_name;
             $review->save();
         }

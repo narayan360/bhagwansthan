@@ -105,9 +105,9 @@
                                             <label for="subscription_type">Subscription Type</label>
                                             <select name="subscription_type" id="subscription_type" class="form-control">
                                                 <option selected="selected">Select Membership Type</option>
-                                                <option value="Daily">Daily</option>
-                                                <option value="Weekly">Weekly</option>
-                                                <option value="Monthly">Monthly</option>
+                                                <option value="{{App\Label::ofValue('milk:daily')}}">{{App\Label::ofValue('milk:daily')}}</option>
+                                                <option value="{{App\Label::ofValue('milk:weekly')}}">{{App\Label::ofValue('milk:weekly')}}</option>
+                                                <option value="{{App\Label::ofValue('milk:monthly')}}">{{App\Label::ofValue('milk:monthly')}}</option>
                                             </select>
                                         </div>
                                     </fieldset>
@@ -118,9 +118,9 @@
                                             <label for="options">Options</label>
                                             <select name="options" id="options" class="form-control">
                                                 <option selected="selected">Select Options</option>
-                                                <option value="250ml">250 ml</option>
-                                                <option value="500ml">500 ml</option>
-                                                <option value="1Lit">1 Lit</option>
+                                                <option value="{{App\Label::ofValue('milk:250ml')}}">{{App\Label::ofValue('milk:250ml')}}</option>
+                                                <option value="{{App\Label::ofValue('milk:500ml')}}">{{App\Label::ofValue('milk:500ml')}}</option>
+                                                <option value="{{App\Label::ofValue('milk:1Litre')}}">{{App\Label::ofValue('milk:1Litre')}}</option>
 
                                             </select>
                                         </div>
@@ -130,7 +130,7 @@
                                         <div class="row">
                                             <div class="form-group col-md-12">
                                                 <label for="subscription_type">Quantity</label>
-                                                <input type="number" class="form-control" name="quantity" placeholder="Select Quantity">
+                                                <input type="number" class="form-control" name="quantity" placeholder="Select Quantity" min="1">
                                             </div>
                                         </div>
                                     </fieldset>
@@ -152,14 +152,14 @@
                                             <label>
                                                 <b>Please transfer Your subscription fee in this Bank account.</b><br>
 
-                                                Bank Name<br>
-                                                {{config('app.name')}} <br>
-                                                A/C: 45698741236 <br>
+                                                {{App\Label::ofValue('global:bank_name')}}<br>
+                                                {{App\Label::ofValue('global:organization')}} <br>
+                                                A/C: {{App\Label::ofValue('global:account_number')}} <br>
 
                                             </label>
                                         </div>
                                     </fieldset>
-                                    <button class="btn bt-hover mb-4 rounded-0">Send Subscription Request</button>
+                                    <button class="btn btn-primary bt-hover mb-4 rounded-0">Send Subscription Request</button>
                                 </form>
                             </div>
                         </div>

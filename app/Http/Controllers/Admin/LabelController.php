@@ -26,7 +26,7 @@ class LabelController extends Controller
      */
     public function create()
     {
-        $pages = ['global', 'home'];        
+        $pages = ['global', 'home','milk'];
         return view('admin.label.create', compact('pages'));
     }
 
@@ -71,7 +71,7 @@ class LabelController extends Controller
      */
     public function edit(Label $label)
     {
-        $pages = ['global', 'home']; 
+        $pages = ['global', 'home','milk'];
         return view('admin.label.edit', compact('pages', 'label'));
     }
 
