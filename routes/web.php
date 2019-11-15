@@ -19,6 +19,10 @@ Route::get('admin/login', 'Admin\LoginController@showLoginForm')->name('admin.lo
 Route::post('admin/login', 'Admin\LoginController@login');
 Route::get('admin/logout', 'Admin\LoginController@logout')->name('admin.logout');
 Route::post('admin/logout', 'Admin\LoginController@logout');
+
+Route::get('password/change', 'Admin\DashboardController@passwordchange')->name('password.change');
+Route::post('password/change', 'Admin\DashboardController@passwordstore');
+
 Route::group(['prefix' => 'admin', 'middleware' => ['admin'], 'namespace' => 'Admin'], function() {
     Route::get('/', 'DashboardController@index')->name('admin.dashboard');
     Route::get('/phpinfo', 'DashboardController@phpinfo');

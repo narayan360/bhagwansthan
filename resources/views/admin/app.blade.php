@@ -39,11 +39,12 @@
                     <ul class="nav navbar-nav navbar-right">
                         {{--<li><a href=""><i class="lnr lnr-cog"></i> <span>Settings</span></a></li>--}}
                         <li><a href="{{ route('settings.index') }}"><i class="lnr lnr-cog"></i> <span>Settings</span></a></li>
+                        <li class="logout"><a href="{{ route('password.change') }}"><i class="lnr lnr-lock"></i> Password Change</a></li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                 <span>{{Auth::user()->name}}</span> <i class="icon-submenu lnr lnr-chevron-down"></i></a>
                             <ul class="dropdown-menu">
-                                <li><a href=""><i class="lnr lnr-user"></i><span>Profile</span></a></li>
+                                {{--<li><a href=""><i class="lnr lnr-user"></i><span>Profile</span></a></li>--}}
                                 <li>
                                     <a href="{{ route('admin.logout') }}"
                                         onclick="event.preventDefault();

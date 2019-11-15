@@ -3,6 +3,7 @@
     Login
 @endsection
 @section('content')
+    <main>
     <section class="banner_wrap container-fluid p-0">
         <div class="overlay"></div>
         <div class="banner_wrap_bg" style="background-image:  url('{{ App\Setting::getBg() }}');"></div>
@@ -118,6 +119,6 @@
             </form>
         </div>
     </section>
-
+    </main>
 
 @endsection
