@@ -182,7 +182,7 @@
                     <div class="social_box text-left">
                         <ul class="list-inline">
                             <li class="list-inline-item">
-                                <a href="#"><i class="fa fa-facebook-f"></i></a>
+                                <a href="https://www.facebook.com"><i class="fa fa-facebook-f"></i></a>
                             </li>
                             <li class="list-inline-item">
                                 <a href="#"><i class="fa fa-instagram"></i></a>
@@ -228,7 +228,7 @@
             </div>
             <div class="row">
                 <div class="col-md-12 col-sm-12 col-12 py-md-2">
-                    <h6 class="text-center main_footer_text">&copy; <?php echo(date('Y'));?>. All Rights Reserved.Designed and Developed By <span class="bottom_footer_span"><a href="https://www.facebook.com/roshan.kunwar.56"> Roshan Kunwar </a></span></h6>
+                    <h6 class="text-center main_footer_text">&copy; <?php echo(date('Y'));?>. All Rights Reserved.Designed and Developed By <span class="bottom_footer_span"><a href="https://www.facebook.com/gharti.rajnis"> Rajnish Gharti MAgar</a></span></h6>
                 </div>
             </div>
         </div>
