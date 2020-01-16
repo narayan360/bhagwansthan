@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Ordertime;
 use Illuminate\Http\Request;
 use App\Category;
 use App\Item;
@@ -105,6 +106,10 @@ class OrderController extends Controller
     {
         return view('cartload');
     }
+    public function topcartload(Request $request)
+    {
+        return view('topcartload');
+    }
     public function sidecartload(Request $request)
     {
         return view('sidecartload');
@@ -115,17 +120,22 @@ class OrderController extends Controller
     }
     public function orderdetails()
     {
-
+        $data['min_order'] = (int) Setting::ofValue('min_order');
         $data['order_date'] = Ordertime::date();
         $data['order_time'] = Ordertime::hour();
-        return view('Front.orderdetails', $data);
+        return view('orderdetails',$data);
     }
     public function placeorder()
     {
-
-        return view('Front.placeorder');
+        $data['min_order'] = (int)Setting::ofValue('min_order');
+//        dd($data['min_order']);
+        return view('placeorder',$data);
     }
-
+    public function delivery_time_load(Request $request)
+    {
+        $data['order_time'] = Ordertime::hour($request->_type,$request->_date);
+        return view('delivery_time_load', $data);
+    }
     public function orderstore(Request $request)
     {
         $request->validate([
@@ -145,5 +155,6 @@ class OrderController extends Controller
         return redirect()->route('checkout', ['_t' => encrypt($request->order_type)]);
 
     }
+
 
 }

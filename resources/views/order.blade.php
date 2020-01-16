@@ -8,8 +8,8 @@
 
     <main>
         <section class="banner_wrap container-fluid p-0">
-            <div class="overlay"></div>
-            <div class="banner_wrap_bg" style="background-image: url('{{asset('images/cow2.jpeg')}}');"></div>
+            <div class="page-overlay"></div>
+            <div class="banner_wrap_bg" style="background-image: url('{{ App\Setting::getBg() }}');"></div>
             <div class="container">
                 <div class="row">
                     <div class="col-md-12 col-sm-12 col-12">
@@ -108,7 +108,51 @@
                                 {{$item->details}}
 							</span>
                                         </div>
+
+
                                     @endforeach
+
+                                    @if ($category->child->count() > 0)
+                                        @foreach ($category->child as $cc)
+                                            <h5 class="tit-mainmenu txt33-menu p-b-25" id="{{$category->slug}}">
+                                                {{$cc->title}}
+                                            </h5>
+                                            @if($cc->items->count() >0)
+                                                @foreach($cc->items as $items)
+                                                    <div class=" order-menu-item item-mainmenu mb-4">
+                                                        <div class="flex-w flex-b mb-2">
+                                                            <a href="#" class="name-item-mainmenu txt21-item">
+                                                                {{$items->title}}
+                                                            </a>
+
+                                                            <div class="line-item-mainmenu bg3-pattern"></div>
+
+                                                            <div class="price-item-mainmenu txt22">
+                                                                <form  method="post" action="{{ route('addtocart') }}">
+                                                                    {!! csrf_field() !!}
+                                                                    <div class="input-group">
+                                                                        <input type="hidden" value="1" class="input-sm form-control" name="quantity">
+                                                                        <input type="hidden" value="{{$items->id}}" class="input-sm form-control" name="item_id">
+                                                                        <button  class="btn animation btn_add_to_cart txt22" type="submit" style="background: transparent; padding:0; margin: 0;">
+                                                                            <span class="price-new ">Rs.{{number_format($items->price,2)}} <i class="fa fa-plus-circle"></i></span>
+                                                                        </button>
+                                                                    </div>
+                                                                    <!-- /input-group -->
+                                                                    <input type="hidden" name="" value="">
+                                                                </form>
+
+                                                            </div>
+
+                                                        </div>
+
+							<span class="info-item-mainmenu txt23">
+                                {{$items->details}}
+							</span>
+                                                    </div>
+                                                @endforeach
+                                            @endif
+                                        @endforeach
+                                    @endif
                                 </div>
                             @endforeach
 
@@ -178,7 +222,7 @@
                                         <div class="row">
                                             <div class="col-12 mt-2">
                                         <div class="checkout_button_section text-right">
-                                        <a href="#" class="btn btn-sm btn-primary">Check Out</a>
+                                        <a href="{{route('orderdetails')}}" class="btn btn-sm btn-primary">Check Out</a>
                                         </div>
                                             </div>
                                         </div>
@@ -226,7 +270,7 @@
             <div class="row text-center">
                 <div class="col-sm-3"><i class="fa fa-shopping-basket"></i> {{Cart::count()}}</div>
                 <div class="col-sm-4">Rs.{{number_format(Cart::subtotal(),2)}}</div>
-                <div class="col-sm-5"><a href="" class="btn btn-sm btn-danger btn-block" role="button">Check Out</a></div>
+                <div class="col-sm-5"><a href="{{route('orderdetails')}}" class="btn btn-sm btn-danger btn-block" role="button">Check Out</a></div>
             </div>
         @endif
     </div>

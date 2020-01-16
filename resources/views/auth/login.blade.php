@@ -3,9 +3,10 @@
     Login
 @endsection
 @section('content')
+    <main>
     <section class="banner_wrap container-fluid p-0">
         <div class="overlay"></div>
-        <div class="banner_wrap_bg" style="background-image: url('{{asset('images/cow2.jpeg')}}');"></div>
+        <div class="banner_wrap_bg" style="background-image:  url('{{ App\Setting::getBg() }}');"></div>
         <div class="container">
             <div class="row">
                 <div class="col-md-12 col-sm-12 col-12">
@@ -20,15 +21,15 @@
     <!-- Sign up -->
     <div class="row">
         <div class="col-md-4 m-auto">
-            <div class="section-signup bg2-pattern mt-3 mb-4 text-md-right">
+            <div class="section-signup bg2-pattern mt-3 mb-4 float-md-right">
                 <form class="flex-c-m flex-w flex-col-c-m-lg p-l-5 p-r-5">
-			<span class="txt5 m-10">
+			<span class="txt55 m-10">
 				First Time User?
 			</span>
 
 
                     <!-- Button3 -->
-                    <a class="btn3 flex-c-m size18 txt11 trans-0-4 m-10" href="{{route('register')}}" >
+                    <a class="btn_login flex-c-m size18 txt11 trans-0-4 m-10" href="{{route('register')}}" >
                         Sign-up
                     </a>
                 </form>
@@ -107,7 +108,7 @@
                     <div class="col-md-6">
                 <div class="wrap-btn-booking flex-c-m mt-3 text-center">
                     <!-- Button3 -->
-                    <button type="submit" class="btn btn-primary flex-c-m size36 txt11 trans-0-4">
+                    <button type="submit" class="btn btn-primary rounded-0">
                         Login
                     </button>
 
@@ -118,6 +119,6 @@
             </form>
         </div>
     </section>
-
+    </main>
 
 @endsection

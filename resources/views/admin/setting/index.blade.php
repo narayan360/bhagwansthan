@@ -7,6 +7,7 @@ Settings
 @section('content')
 
 @if(count($logos) > 0)
+	<h4>Logo</h4>
 	@foreach($logos as $logo)
 		<img src="{{ asset('uploads/logo/'.$logo->value) }}" height="100" width="150">
 	@endforeach
@@ -24,6 +25,52 @@ Settings
 		<div class="logo-add">
 			<input type="file" name="logo" onclick="myFunction()">
 			<button type="submit" id="submit-btn" style="display: none;"> Submit</button>
+		</div>
+	</form>
+@endif
+<br>
+@if(count($headerbgs) > 0)
+	<h4>Header Bg</h4>
+	@foreach($headerbgs as $headerbg)
+		<img src="{{ asset('uploads/headerbg/'.$headerbg->value) }}" height="100" width="150">
+	@endforeach
+	<form method="POST" action="{{ route('change.headerbg') }}" enctype="multipart/form-data">
+		{{ csrf_field() }}
+		<div class="logo-add">
+			<input type="file" name="headerbg" onclick="myFunctions()">
+			<button type="submit" id="submit-btns" style="display: none;"> Submit</button>
+		</div>
+	</form>
+@else
+	<img src="{{ asset('image/header_bg.jpg') }}" height="100" width="150">
+	<form method="POST" action="{{ route('change.headerbg') }}" enctype="multipart/form-data">
+		{{ csrf_field() }}
+		<div class="logo-add">
+			<input type="file" name="headerbg" onclick="myFunctions()">
+			<button type="submit" id="submit-btns" style="display: none;"> Submit</button>
+		</div>
+	</form>
+@endif
+<br>
+@if(count($parallaxbgs) > 0)
+	<h4>Parallax Bg</h4>
+	@foreach($parallaxbgs as $parallaxbg)
+		<img src="{{ asset('uploads/parallaxbg/'.$parallaxbg->value) }}" height="100" width="150">
+	@endforeach
+	<form method="POST" action="{{ route('change.parallaxbg') }}" enctype="multipart/form-data">
+		{{ csrf_field() }}
+		<div class="logo-add">
+			<input type="file" name="parallaxbg" onclick="myFunctioned()">
+			<button type="submit" id="submit-btnss" style="display: none;"> Submit</button>
+		</div>
+	</form>
+@else
+	<img src="{{ asset('image/parallax_bg.jpg') }}" height="100" width="150">
+	<form method="POST" action="{{ route('change.parallaxbg') }}" enctype="multipart/form-data">
+		{{ csrf_field() }}
+		<div class="logo-add">
+			<input type="file" name="parallaxbg" onclick="myFunctioned()">
+			<button type="submit" id="submit-btnss" style="display: none;"> Submit</button>
 		</div>
 	</form>
 @endif
@@ -67,6 +114,7 @@ Settings
 @endsection
 
 @section('script')
+	{{--Logo--}}
 	<script type="text/javascript">
 		function myFunction() {
 		  var x = document.getElementById("submit-btn");
@@ -76,5 +124,28 @@ Settings
 		    x.style.display = "none";
 		  }
 		}
+//		Headerbg
+		function myFunctions() {
+			var x = document.getElementById("submit-btns");
+			if (x.style.display === "none") {
+				x.style.display = "block";
+			} else {
+				x.style.display = "none";
+			}
+		}
+		//		Parallaxbg
+		function myFunctioned() {
+			var x = document.getElementById("submit-btnss");
+			if (x.style.display === "none") {
+				x.style.display = "block";
+			} else {
+				x.style.display = "none";
+			}
+		}
 	</script>
+
+
+
+
+
 @endsection

@@ -19,10 +19,16 @@ Route::get('admin/login', 'Admin\LoginController@showLoginForm')->name('admin.lo
 Route::post('admin/login', 'Admin\LoginController@login');
 Route::get('admin/logout', 'Admin\LoginController@logout')->name('admin.logout');
 Route::post('admin/logout', 'Admin\LoginController@logout');
+
+Route::get('password/change', 'Admin\DashboardController@passwordchange')->name('password.change');
+Route::post('password/change', 'Admin\DashboardController@passwordstore');
+
 Route::group(['prefix' => 'admin', 'middleware' => ['admin'], 'namespace' => 'Admin'], function() {
     Route::get('/', 'DashboardController@index')->name('admin.dashboard');
     Route::get('/phpinfo', 'DashboardController@phpinfo');
     Route::resource('pages', 'PageController');
+    Route::get('pages/photodelete/{page}', 'PageController@photodelete')->name('pages.photodelete');
+    Route::get('pages/showhide/{page}', 'PageController@showhide')->name('pages.showhide');
     Route::resource('labels', 'LabelController');
     Route::resource('slides', 'SlideController');
     Route::resource('galleries', 'GalleryController');
@@ -35,15 +41,19 @@ Route::group(['prefix' => 'admin', 'middleware' => ['admin'], 'namespace' => 'Ad
     Route::post('milks/{id}/decline', 'MilkController@decline')->name('milk.decline');
     Route::resource('settings', 'SettingController');
     Route::post('logo', 'SettingController@logoChange')->name('change.logo');
+    Route::post('headerbg', 'SettingController@headerbgChange')->name('change.headerbg');
+    Route::post('parallaxbg', 'SettingController@parallaxbgChange')->name('change.parallaxbg');
 
     Route::get('milksubscriptions/pdf/{milk}', 'MilkController@pdf')->name('pdf');
 
     Route::resource('contacts', 'ContactController');
+    Route::resource('socials', 'SocialController');
 
     Route::resource('categories', 'CategoryController');
     Route::post('categories/order', 'CategoryController@order')->name('categories.order');
     Route::resource('items', 'ItemController');
     Route::post('items/order', 'ItemController@order')->name('items.order');
+    Route::resource('orders', 'OrderController');
 });
 
 
@@ -102,5 +112,20 @@ Route::post('addtocart','OrderController@addtocart')->name('addtocart');
 Route::post('removecart','OrderController@removecart')->name('removecart');
 Route::post('cartupdate','OrderController@cartupdate')->name('cartupdate');
 Route::post('cartload','OrderController@cartload')->name('cartload');
+Route::post('topcartload','OrderController@topcartload')->name('topcartload');
 Route::post('sidecartload','OrderController@sidecartload')->name('sidecartload');
 Route::post('mobilecartload','OrderController@mobilecartload')->name('mobilecartload');
+
+Route::get('orderdetails','OrderController@orderdetails')->name('orderdetails');
+
+Route::post('placeorder','OrderController@placeorder')->name('placeorder');
+Route::post('orderdetails','OrderController@orderstore');
+
+Route::get('checkout','CheckoutController@index')->name('checkout');
+Route::post('checkout','CheckoutController@checkout');
+Route::get('checkout/complete','CheckoutController@complete')->name('complete');
+
+Route::group(['middleware' => ['auth']], function(){
+    Route::get('profile', 'UserController@profile')->name('profile');
+    Route::post('changepassword', 'UserController@changepassword')->name('changepassword');
+});

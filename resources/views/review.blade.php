@@ -6,7 +6,7 @@
     <main>
         <section class="banner_wrap container-fluid p-0">
             <div class="overlay"></div>
-            <div class="banner_wrap_bg" style="background-image: url('{{asset('images/cow2.jpeg')}}');"></div>
+            <div class="banner_wrap_bg" style="background-image: url('{{ App\Setting::getBg() }}');"></div>
             <div class="container">
                 <div class="row">
                     <div class="col-md-12 col-sm-12 col-12">
@@ -26,8 +26,8 @@
                         <div class="row review_singles">
                             <div class="col-md-4 col-sm-6 col-12">
                                 <div class="review_user_img">
-                                    <img src="{{isset($review->image) ? asset('uploads/reviews/'.$review->image) : asset('images/icons-user.png') }}" alt="{{$review->title}}" class="img-fluid">
                                 </div>
+                                <img src="{{isset($review->image) ? asset('uploads/reviews/'.$review->image) : asset('images/icons-user.png') }}" alt="{{$review->title}}" class="img-fluid">
                             </div>
                             <div class="col-md-8 col-sm-6 col-12">
                                 <div class="review_user_details">

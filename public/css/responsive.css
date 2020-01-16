@@ -84,7 +84,7 @@
         margin: 5px 0;
         background: white;
         border-radius: 3px;
-        text-align: justify;
+        text-align: justify !important;
         padding: 10px 10px;
         /* padding: 13vmin 5vmin 20vmin 10vmin; */
         box-shadow: 0 25px 42px rgba(0,0,0,0.2);
@@ -146,6 +146,7 @@
     .main_footer_text
     {
         padding-top: 10px;
+        font-size: 12px;
     }
     .gallery_images
     {
@@ -194,6 +195,9 @@
     .btn_add_to_cart span
     {
         font-size: 14px;
+    }
+    .collection-block-order {
+        margin-bottom: 15px;
     }
 
 
@@ -291,6 +295,10 @@
     .contacts_links > ul> li {
         padding: 6px 0;
     }
+    .Login_shopping_wrap
+    {
+        text-align: right;
+    }
     /*.contacts_links > ul> li:last-child*/
     /*{*/
         /*padding-bottom: 5px;*/
@@ -311,12 +319,28 @@
     .logo_box
     {
         text-align: left;
+        margin-top: -30px;
     }
     .quick_links >ul>li {
         padding: 8px 0;
     }
     .contacts_links > ul> li {
         padding: 8px 0;
+    }
+    .navbar_img_content
+    {
+        margin-left: -30px;
+    }
+    .Login_shopping_wrap
+    {
+        text-align: right;
+    }
+    .navbar
+    {
+        padding: 0;
+    }
+    .index_about_wrap .panel {
+        top: 1vmin;
     }
 
 }
@@ -332,6 +356,7 @@
     .logo_box
     {
         text-align: left;
+        margin-top: -35px;
     }
 
     .logo_section_header
@@ -390,6 +415,18 @@
     #myCarousel .testimonial
     {
         font-size: 18px;
+    }
+    .navbar_img_content
+    {
+        margin-left: -30px;
+    }
+    .Login_shopping_wrap
+    {
+        text-align: right;
+    }
+    .navbar
+    {
+        padding: 0;
     }
 
 

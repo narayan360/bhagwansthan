@@ -57,7 +57,7 @@
                     <div class="row">
                         <div class="col-12 mt-2">
                             <div class="checkout_button_section text-right">
-                                <a href="#" class="btn btn-sm btn-primary">Check Out</a>
+                                <a href="{{route('orderdetails')}}" class="btn btn-sm btn-primary">Check Out</a>
                             </div>
                         </div>
                     </div>

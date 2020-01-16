@@ -43,6 +43,10 @@
 <div class="form-group">
 	<label class="col-sm-2 control-label" for="image">Image</label>
 	<div class="col-sm-10">
+		@if(isset($page) && $page->image)
+			<img src="{{asset('/uploads/page/'.$page->image)}}" height="100">
+			<a href="{{route('pages.photodelete',$page->id)}}" class="btn btn-danger">Delete this image</a>
+		@endif
 		<input type="file" name="image" id="image">
 	</div>
 </div>

@@ -7,8 +7,15 @@ use Illuminate\Database\Eloquent\Model;
 class Review extends Model
 {
 	protected $attributes = [
-	'status' => 1,
+	'status' => 0,
 	];
+	public static $_thumbdir = [
+		'700x525',
+		'400x300',
+		'100x80',
+		'300x300',
+	];
+	protected $file_path = 'review';
 
 	public function country()
 	{
@@ -24,10 +31,12 @@ class Review extends Model
 		if($this->image){
 			$image = public_path('uploads/reviews/' . $this->image);
 			if (file_exists($image)) {
-				return url('uploads/reviews/' . $size . '/' . $this->image);
+				return url('uploads/reviews/' . $this->image);
 			}else{
-				return asset('images/' . $size .'icons-user.png');
+				return 'holder.js/' . $size . '/image not found';
 			}
+		}else{
+			return 'holder.js/' . $size . '/image not found';
 		}
 	}
 

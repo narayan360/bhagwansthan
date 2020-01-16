@@ -49,6 +49,7 @@ class PageController extends Controller
             'title' => 'required|unique:pages',
             'slug' => 'required|unique:pages',
             'details' => 'required',
+            'image' => 'mimes:jpeg,jpg,png',
             ]);
 //dd($request->position);
         $slug = $request->slug? $request->slug : $request->title;
@@ -66,7 +67,7 @@ class PageController extends Controller
         $page->status = $request->status?:0;
         if($request->hasFile('image'))
         {
-            $image_name = $page->title.'-'.$page->id.'.'.$request->image->extension();
+            $image_name = $page->title . '-'.$page->id . '.'.$request->image->extension();
             $path = $request->image->move('uploads/page/',$image_name);
             $page->image = $image_name;
 
@@ -112,6 +113,7 @@ class PageController extends Controller
             'title' => 'required|unique:pages,title,' . $page->id,
             'slug' => 'required|unique:pages,slug,' . $page->id,
             'details' => 'required',
+            'image' => 'mimes:jpeg,jpg,png',
             ]);
 
         $slug = $request->slug? $request->slug : $request->title;
@@ -161,5 +163,18 @@ class PageController extends Controller
         }else{
             return redirect()->route('pages.index')->with('error', 'Error while deleting page.');
         }
+    }
+    public function photodelete(Page $page)
+    {
+        if($page && $page->image)
+        {
+            if(file_exists(public_path('/uploads/page/'.$page->image)))
+            {
+                unlink(public_path('/uploads/page/'.$page->image));
+            }
+            $page->image = null;
+            $page->save();
+        }
+        return redirect()->back()->with('success','Image Deleted');
     }
 }

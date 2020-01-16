@@ -13,7 +13,7 @@
     <main>
         <section class="banner_wrap container-fluid p-0">
             <div class="overlay"></div>
-            <div class="banner_wrap_bg" style="background-image: url('{{asset('images/cow2.jpeg')}}');"></div>
+            <div class="banner_wrap_bg" style="background-image: url('{{ App\Setting::getBg() }}');"></div>
             <div class="container">
                 <div class="row">
                     <div class="col-md-12 col-sm-12 col-12">
@@ -167,7 +167,7 @@
                     <div class="col-md-12 col-sm-12 col-12 map_wrap">
                         <div class="map_content">
                             <div class="mapouter"><div class="gmap_canvas">
-                                    <iframe width="100%" height="400" id="gmap_canvas" src="https://maps.google.com/maps?q=university%20of%20san%20francisco&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+                                    {!! \App\Setting::ofValue('google_map') !!}
                                    </div>
                         </div>
                     </div>

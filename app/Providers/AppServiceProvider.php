@@ -25,8 +25,10 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         view()->composer('*', function ($view) {
+//            $view->with('main_menu', \App\Menu::main());
             $view->with('main_menu', \App\Menu::main());
             $view->with('footer_link', \App\Menu::footer_link());
+            $view->with('socials', \App\Social::all());
         });
         Schema::defaultStringLength(191);
     }
