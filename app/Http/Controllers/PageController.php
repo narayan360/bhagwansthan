@@ -137,7 +137,11 @@ class PageController extends Controller
     }
     public function contact(Request $request)
     {
+
+
         if ($request->isMethod('post')) {
+            echo(\Session::get('rand_pass'));
+            dd($request->all());
             $this->validate($request, [
                 'name' => 'required',
                 'email' => 'required',

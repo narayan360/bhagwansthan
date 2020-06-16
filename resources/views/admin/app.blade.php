@@ -49,7 +49,7 @@
                                     <a href="{{ route('admin.logout') }}"
                                         onclick="event.preventDefault();
                                                  document.getElementById('logout-form').submit();">
-                                        <i class="lnr lnr-exit"></i> <span>Logout</span>
+                                        <i class="lnr  lnr-exit"></i> <span>Logout</span>
                                     </a>
 
                                     <form id="logout-form" action="{{ route('admin.logout') }}" method="POST" style="display: none;">

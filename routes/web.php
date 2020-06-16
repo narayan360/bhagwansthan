@@ -116,7 +116,7 @@ Route::post('topcartload','OrderController@topcartload')->name('topcartload');
 Route::post('sidecartload','OrderController@sidecartload')->name('sidecartload');
 Route::post('mobilecartload','OrderController@mobilecartload')->name('mobilecartload');
 
-Route::get('orderdetails','OrderController@orderdetails')->name('orderdetails');
+//Route::get('orderdetails','OrderController@orderdetails')->name('orderdetails');
 
 Route::post('placeorder','OrderController@placeorder')->name('placeorder');
 Route::post('orderdetails','OrderController@orderstore');
@@ -127,5 +127,6 @@ Route::get('checkout/complete','CheckoutController@complete')->name('complete');
 
 Route::group(['middleware' => ['auth']], function(){
     Route::get('profile', 'UserController@profile')->name('profile');
+    Route::get('orderdetails','OrderController@orderdetails')->name('orderdetails');
     Route::post('changepassword', 'UserController@changepassword')->name('changepassword');
 });
