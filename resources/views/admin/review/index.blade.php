@@ -30,12 +30,12 @@ Reviews
 				{{--<td>{{ $review->rating}}</td>--}}
 				<td>
 					@if (!$review->status)
-						<a class="text-success" data-toggle="tooltip" data-placement="bottom" title="Click to hide" href="{{ route('reviews.approve', $review->id) }}">
+						<a class="text-success" data-toggle="tooltip" data-placement="bottom" title="Click to show" href="{{ route('reviews.approve', $review->id) }}">
 							<i class="lnr lnr-checkmark-circle"></i>
 							Active
 						</a>
 					@else
-						<a class="text-danger" data-toggle="tooltip" data-placement="bottom" title="Click to show" href="{{ route('reviews.cancel', $review->id) }}">
+						<a class="text-danger" data-toggle="tooltip" data-placement="bottom" title="Click to hide" href="{{ route('reviews.cancel', $review->id) }}">
 							<i class="lnr lnr-cross-circle"></i>
 							Draft
 						</a>

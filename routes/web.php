@@ -54,6 +54,8 @@ Route::group(['prefix' => 'admin', 'middleware' => ['admin'], 'namespace' => 'Ad
     Route::resource('items', 'ItemController');
     Route::post('items/order', 'ItemController@order')->name('items.order');
     Route::resource('orders', 'OrderController');
+    Route::get('order/paid/{order}', 'OrderController@paid')->name('order.payment.paid');
+    Route::get('order/unpaid/{order}', 'OrderController@unpaid')->name('order.payment.unpaid');
 });
 
 

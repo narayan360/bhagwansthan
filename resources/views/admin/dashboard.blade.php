@@ -10,7 +10,7 @@ Dashboard
         <div class="panel panel-headline">
             <div class="panel-heading">
                 <h3 class="panel-title"><span class="fa fa-shopping-cart fa-fw"></span> Today's online Orders For Collection</h3>
-                <p class="panel-subtitle">Date: {{date('d M, y')}}</p>
+                <p class="panel-subtitle">Date: {{date('d M, Y')}}</p>
             </div>
             <div class="panel-body">
                 @if ($orders->count() > 0)

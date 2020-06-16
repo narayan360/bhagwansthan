@@ -50,4 +50,34 @@ class OrderController extends Controller
             return redirect()->route('orders.index')->with('error', 'Error while deleting Order Details.');
         }
     }
+    public function paid(Order $order)
+    {
+        if($order){
+            $order->paid=1;
+
+            if($order->save()){
+                return redirect()->route('orders.index')->with('success', 'Order payment paid.');
+            }else{
+                return redirect()->route('orders.index')->with('error', 'Error while approving payment.');
+            }
+
+        }else{
+            abort();
+        }
+    }
+    public function unpaid(Order $order)
+    {
+        if($order){
+            $order->paid=0;
+
+            if($order->save()){
+                return redirect()->route('orders.index')->with('success', 'Order payment unpaid.');
+            }else{
+                return redirect()->route('orders.index')->with('error', 'Error while cancelling payment.');
+            }
+
+        }else{
+            abort();
+        }
+    }
 }
