@@ -38,7 +38,19 @@ Orders
 					<td>{{ $order->address }}</td>
 					<td>{{ $order->name }}</td>
 					<td>{{ $order->phone }}</td>
-					<td>({!!$order->paid? '<span class="text-success">Paid</span>' : '<span class="text-danger">Unpaid</span>'!!}) </td>
+					<td>
+						@if (!$order->paid)
+							<a class="text-danger" data-toggle="tooltip" data-placement="bottom" title="Click for paid" href="{{ route('order.payment.paid', $order->id) }}">
+								<i class="lnr lnr-cross-circle"></i>
+								Unpaid
+							</a>
+						@else
+							<a class="text-sucess" data-toggle="tooltip" data-placement="bottom" title="Click for unpaid" href="{{ route('order.payment.unpaid', $order->id) }}">
+								<i class="lnr lnr-checkmark-circle"></i>
+								Paid
+							</a>
+						@endif
+					</td>
 					<td class="text-right">
 						<a class="btn btn-primary btn-sm" href="{{ route('orders.show', $order->id) }}"><i class="fa fa-eye"></i></a>
 						<div class="pull-right" style="margin-left: 10px;">
