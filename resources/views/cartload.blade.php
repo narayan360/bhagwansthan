@@ -24,8 +24,8 @@
                 <input type="hidden" name="item_id" value="{{$cart_item->id}}">
             </form>
         </td>
-        <td>&pound; {{$cart_item->price}}</td>
-        <td>&pound;{{number_format($cart_item->price * $cart_item->qty,2)}}</td>
+        <td>Rs. {{$cart_item->price}}</td>
+        <td>Rs.{{number_format($cart_item->price * $cart_item->qty,2)}}</td>
         <td class=""><form action="{{ route('removecart') }}" method="post">
                 {!! csrf_field() !!}
                 <input type="hidden" name="cart_id" value="{{$cart_item->rowId}}">
