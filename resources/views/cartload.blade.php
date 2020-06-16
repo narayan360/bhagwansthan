@@ -38,14 +38,14 @@
     <tr>
         <td></td>
         <td class="" colspan="3" >Orders Amount :</td>
-        <td class="text-spl-color od-t-p">&pound;{{number_format(Cart::subtotal(),2)}}</td>
+        <td class="text-spl-color od-t-p">Rs.{{number_format(Cart::subtotal(),2)}}</td>
         <td></td>
     </tr>
 
     <tr>
         <td></td>
         <td class="text-bold" colspan="3" style="font-weight: 600;">Total  Amount :</td>
-        <td class="text-bold text-spl-color od-t-p" style="font-weight: 600;">&pound;{{number_format(Cart::subtotal(),2)}}</td>
+        <td class="text-bold text-spl-color od-t-p" style="font-weight: 600;">Rs.{{number_format(Cart::subtotal(),2)}}</td>
         <td></td>
     </tr>
 
