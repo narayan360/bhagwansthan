@@ -244,7 +244,7 @@
                                 </div>
                                 <div class="col-12 mt-3">
                             <div class="side-block-order border-radius-4">
-                                <h6 class="txt3333 text-center" style="opacity: 0.4;">Total:&pound;{{number_format(Cart::subtotal(),2)}}</h6>
+                                <h6 class="txt3333 text-center" style="opacity: 0.4;">Total:Rs.{{number_format(Cart::subtotal(),2)}}</h6>
 
                             </div>
                                 </div>

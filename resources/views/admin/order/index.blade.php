@@ -38,7 +38,7 @@ Orders
 					<td>{{ $order->address }}</td>
 					<td>{{ $order->name }}</td>
 					<td>{{ $order->phone }}</td>
-					<td>{{ $order->order_status }}</td>
+					<td>{{ $order->paid }}</td>
 					<td class="text-right">
 						<a class="btn btn-primary btn-sm" href="{{ route('orders.show', $order->id) }}"><i class="fa fa-eye"></i></a>
 						<div class="pull-right" style="margin-left: 10px;">
