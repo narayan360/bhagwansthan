@@ -141,7 +141,17 @@
                         <ul class="list-inline">
                             @foreach($socials as $social)
                             <li class="list-inline-item">
+<<<<<<< HEAD
+                                <a href="https://www.facebook.com"><i class="fa fa-facebook-f"></i></a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a href="#"><i class="fa fa-instagram"></i></a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a href="#"><i class="fa fa-twitter"></i></a>
+=======
                                 <a href="{{ $social->link }}" target="_blank"><i class="fa fa-{{ $social->icon }}"></i></a>
+>>>>>>> fa987faa2abdc26a33b822c256bed667f2a7e70b
                             </li>
                             @endforeach
                         </ul>
@@ -182,7 +192,11 @@
             </div>
             <div class="row">
                 <div class="col-md-12 col-sm-12 col-12 py-md-2">
+<<<<<<< HEAD
+                    <h6 class="text-center main_footer_text">&copy; <?php echo(date('Y'));?>. All Rights Reserved.Designed and Developed By <span class="bottom_footer_span"><a href="https://www.facebook.com/gharti.rajnis"> Rajnish Gharti MAgar</a></span></h6>
+=======
                     <h6 class="text-center main_footer_text">&copy; <?php echo(date('Y'));?>. All Rights Reserved.<br class="d-sm-none d-md-none d-lg-none">Designed and Developed By <span class="bottom_footer_span"><a href="https://www.facebook.com/roshan.kunwar.56"> Roshan Kunwar </a></span></h6>
+>>>>>>> fa987faa2abdc26a33b822c256bed667f2a7e70b
                 </div>
             </div>
         </div>
